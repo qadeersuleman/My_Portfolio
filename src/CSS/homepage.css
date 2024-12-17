@@ -1,0 +1,85 @@
+/* Basic styles for the navigation links */
+.nav-link {
+    position: relative; /* Required for positioning the pseudo-element */
+    text-decoration: none; /* Remove the default underline */
+    color: inherit; /* Use the current text color */
+  }
+  
+  /* Create the underline effect */
+  .nav-link::after {
+    content: ''; /* Necessary to create a pseudo-element */
+    position: absolute;
+    left: 0; /* Aligns the underline to the left */
+    bottom: 0; /* Positions it at the bottom of the link */
+    height: 2px; /* Height of the underline */
+    width: 100%; /* Full width of the link */
+    background-color: #ffffff; /* Color of the underline */
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.5s ease; /* Smooth transition effect */
+  }
+  
+  /* Show the underline on hover */
+  .nav-link:hover::after {
+    transform: scaleX(1); /* Scale it to full width */
+   
+  }
+
+  .nav-link:hover
+  {
+    color: #ffffff !important; 
+  }
+  
+
+
+
+  /* That is for Modal */
+  /* Custom Modal Styling */
+.custom-centered-modal .modal-content {
+  border-radius: 8px; /* Smooth rounded corners */
+  width: 90%; /* Adjust the width */
+  max-width: 400px; /* Limit max-width */
+  margin: auto; /* Centered horizontally */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-centered-modal .modal-body {
+  padding: 2rem 1.5rem;
+}
+
+.custom-centered-modal .menu-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #000;
+  margin: 10px 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.custom-centered-modal .menu-link:hover {
+  color: #2b73d8 !important; /* Your theme color */
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: #000;
+}
+
+.close-btn:hover {
+  color: #e65c00;
+}
+
+
+
+.active {
+  position: relative;
+  color: #f7f7f7 !important; /* Highlight text color */
+  font-weight: bold;
+  
+}
+
+
+
