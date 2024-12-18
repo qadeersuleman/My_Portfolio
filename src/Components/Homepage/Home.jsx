@@ -10,7 +10,7 @@ import Faq from "./Faq";
 import Testimonials from "./Testimonials";
 import ContactUs from "./ContactUs";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+
 
 const Home = () => {
   return (
