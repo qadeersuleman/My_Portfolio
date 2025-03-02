@@ -1,12 +1,12 @@
-import './App.css';
-import Home from './Components/Homepage/Home';
-
+import React, { useState } from "react";
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   return (
-    <div className="App">
-        <Home />
-    </div>
+    <>
+      <h1>Hello World</h1>
+    </>
   );
 }
 
