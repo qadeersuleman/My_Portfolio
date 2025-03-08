@@ -1,0 +1,140 @@
+/* Main container */
+#projects {
+  background: #0f0c29;
+  background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+  padding: 60px 0;
+  color: white;
+}
+
+
+.portfolio-container {
+  padding: 40px;
+  background: #0d0d0d;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+/* Neon title */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.neon-text {
+  color: #00e1ff;
+  text-shadow: 0 0 5px #00e1ff, 0 0 10px #00e1ff, 0 0 20px #00e1ff;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+/* Title Buttons */
+.title-buttons {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.title-buttons .btn-link {
+  font-size: 1.2rem;
+  color: #00e1ff;
+  text-decoration: none;
+  margin: 0 10px;
+  background: transparent;
+  border: none;
+}
+
+.title-buttons .btn-link:hover {
+  color: #ffffff;
+  border: 2px solid #00e1ff;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+/* Tabs */
+.neon-tabs .nav-link {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: none;
+  padding: 12px 20px;
+  transition: 0.3s;
+}
+
+.neon-tabs .nav-link:hover {
+  color: #00e1ff;
+  text-shadow: 0px 0px 10px #00e1ff;
+}
+
+.neon-tabs .nav-link.active {
+  color: #ffffff;
+  border: 2px solid #00e1ff;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+/* Cards */
+.neon-card {
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid #00e1ff;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+  transition: 0.3s;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.neon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Technologies */
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tech-icon img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  border: 2px solid #00e1ff;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+  transition: 0.3s;
+}
+
+.tech-icon img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+}
+
+.tech-icon p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #00e1ff;
+}
+
+
+.title-buttons button {
+  font-size: 18px;
+  color: white;
+  border: 2px solid transparent; /* No border initially */
+  padding: 10px 15px;
+  margin: 5px;
+  background: none;
+  transition: all 0.3s ease;
+}
+
+.title-buttons button.active-tab{
+  border: 2px solid #00ffff; /* Neon border for active button */
+  /* box-shadow: 0 0 10px #00ffff; Optional glow effect */
+  border-radius: 5px;
+}

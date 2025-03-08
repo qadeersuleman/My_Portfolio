@@ -1,0 +1,46 @@
+
+.intro-titles
+{
+    color: #fff;
+    font-weight: 600;
+    font-size: 3rem;
+    
+}
+
+@media (max-width : 650px)
+{
+    .intro-titles
+    {
+        font-size: 26px;
+        margin-top: 70px;
+    }
+}
+.sliders
+{
+    color: skyblue;
+    
+}
+
+@media (max-width : 650px)
+{
+    .sliders
+    {
+        
+        margin-top: -80px;
+    }
+}
+
+.detail
+{
+    font-size: 20px;
+}
+
+@media (max-width:650px)
+{
+    .detail
+    {
+        font-size: 15px;
+        margin-bottom: -10px;
+        margin-top: -10px;
+    }
+}

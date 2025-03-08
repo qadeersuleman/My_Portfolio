@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-
+import Main from "./Components/Main";
+import SplashScreen from "./Components/SplashScreen";
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  
+      const [showSplash, setShowSplash] = useState(true);
 
-  return (
-    <>
-      <h1>Hello World</h1>
-    </>
-  );
+return showSplash ? <SplashScreen onFinish={() => setShowSplash(false)} /> : <Main />;
+   
 }
 
 export default App;

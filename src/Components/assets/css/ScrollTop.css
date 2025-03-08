@@ -1,0 +1,26 @@
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #00e1ff;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0 0 10px #00e1ff, 0 0 20px #00e1ff; */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+  }
+  
+  .back-to-top:hover {
+    background: #fff;
+    color: #00e1ff;
+    box-shadow: 0 0 15px #00e1ff;
+  }
+  

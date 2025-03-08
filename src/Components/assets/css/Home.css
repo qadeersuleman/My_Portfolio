@@ -1,0 +1,213 @@
+/* General Header Styles */
+#home  {
+    background: #0f0c29;
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    padding: 60px 0;
+    color: white;
+  }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0a0a0a;
+  color: white;
+  padding: 50px;
+}
+
+/* Header Content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Text Section */
+.text-section {
+  width: 50%;
+}
+
+.text-section h2 {
+  font-size: 2.5rem;
+}
+
+.text-section h3 {
+  font-size: 2rem;
+}
+
+.highlight {
+  color: #00e1ff; /* Greenish glow color */
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  font-size: 1.8rem;
+  margin-right: 15px;
+  color: #00e1ff;
+  transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: white;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+
+.hire-me,
+.contact {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: 2px solid #00e1ff;
+  background: transparent;
+  color: #00e1ff;
+  border-radius: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.hire-me:hover,
+.contact:hover {
+  background-color: #00e1ff;
+  color: #0a0a0a;
+}
+
+/* Image Section */
+.image-section {
+  width: 40%;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid #00e1ff;
+  box-shadow: 0 0 30px rgba(66, 245, 167, 0.7);
+  object-fit: cover;
+}
+
+.social-icons{
+    display: flex;
+    gap: 20px;
+}
+/* Social Icons */
+.social-icons a {
+  width: 50px;  /* Set width */
+  height: 50px; /* Set height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; /* Increase icon size */
+  color: #00e1ff; /* Icon color */
+  background-color: rgba(66, 245, 167, 0.1); /* Light background */
+  border-radius: 50%; /* Makes it circular */
+  border: 2px solid #00e1ff; /* Border color */
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background-color: #00e1ff;
+  color: #0a0a0a; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge */
+}
+
+.highlight {
+  color: #00e1ff; /* Neon cyan */
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    
+
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-section {
+    width: 100%;
+    margin-bottom: 20px;
+    order: 2; /* Display text section second */
+  }
+
+  .image-section {
+    width: 100%;
+    margin-top: 120px;
+    order: 1; /* Display image section first */
+  }
+
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+  }
+
+  .text-section h2 {
+    font-size: 2rem;
+  }
+
+  .text-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .hire-me,
+  .contact {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+  
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 20px;
+  }
+
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+
+  .text-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .text-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .hire-me,
+  .contact {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    padding-left: 55px !important;
+}
+}
+
+
+
+
+/* Hover Effect */
+.image-section:hover .profile-pic {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00e1ff, 0 0 40px #00e1ff;
+}

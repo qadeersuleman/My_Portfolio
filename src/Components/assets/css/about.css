@@ -1,0 +1,97 @@
+/* NEON Background */
+#about {
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Neon Glow Effect */
+  .box-shadow-full {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 15px 3px rgba(0, 255, 255, 0.5);
+  }
+  
+  /* Neon Text */
+  .title-left, .title-s {
+    color: #00e1ff;
+    /* text-shadow: 0px 0px 5px #00e1ff, 0px 0px 10px #00e1ff; */
+  }
+  
+  /* Progress Bar with Neon Effect */
+  .progress-bar {
+    background: #00e1ff;
+    box-shadow: 0px 0px 10px #00e1ff;
+  }
+  
+  /* Image Styling */
+  .about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #00e1ff;
+  }
+  
+  /* Glow Animation */
+  @keyframes neonGlow {
+    0% {
+      box-shadow: 0px 0px 10px #00e1ff;
+    }
+    50% {
+      box-shadow: 0px 0px 20px #00e1ff;
+    }
+    100% {
+      box-shadow: 0px 0px 10px #00e1ff;
+    }
+  }
+  
+  .box-shadow-full {
+    animation: neonGlow 1.5s infinite alternate;
+  }
+  
+
+  /* General Styles */
+.about-mf {
+  padding: 60px 0;
+  background: #0f0c29;
+  background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+  color: white;
+}
+
+.box-shadow-full {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+.about-img img {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.title-s {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00e1ff;
+}
+
+.text-light {
+  color: #ddd;
+}
+
+.progress {
+  background: #333;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  background: #00e1ff;
+  height: 20px;
+  border-radius: 20px;
+  transition: width 2s ease-in-out;
+}
