@@ -8,6 +8,7 @@ import {
   faGithub,
   faInstagram,
   faFacebook,
+  faChrome
 } from "@fortawesome/free-brands-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -88,6 +89,7 @@ const Home = () => {
               className="social-link"
             >
               <FontAwesomeIcon icon={faLinkedin} />
+              
             </Link>
             <Link
               to="https://github.com/qadeersuleman/"
