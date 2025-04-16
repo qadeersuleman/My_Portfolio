@@ -1,70 +1,11 @@
-/* App.css */
-
-:root {
-  --primary-color: #ff6b00;
-  --secondary-color: #e65c00;
-  --global-color: #ffffff;
-}
-
-body {
+body, html {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Stops horizontal scroll */
 }
 
-.navbar-custom {
-  background-color: var(--primary-color) !important;
-}
-
-.navbar-custom .navbar-brand {
-  color: var(--global-color) !important;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.navbar-custom .nav-link {
-  color: var(--global-color) !important;
-  margin-left: 15px;
-}
-
-.navbar-custom .nav-link:hover {
-  color: var(--secondary-color) !important;
-}
-
-.hero-section {
-  background-color: var(--primary-color);
-  padding: 60px 20px;
-}
-
-.hero-section h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.hero-section p {
-  font-size: 1.2rem;
-  margin-top: 10px;
-}
-
-.features-section {
-  background-color: var(--global-color);
-}
-
-.feature-box {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-}
-
-.feature-icon {
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-.footer-section {
-  background-color: var(--secondary-color);
-  color: var(--global-color);
+#root { /* (if using Create React App) */
+  width: 100%;
+  overflow-x: hidden;
 }

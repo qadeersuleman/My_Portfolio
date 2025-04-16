@@ -138,3 +138,481 @@
   /* box-shadow: 0 0 10px #00ffff; Optional glow effect */
   border-radius: 5px;
 }
+
+
+
+@media (min-width: 350px) and (max-width: 500px) {
+  /* Slightly larger elements */
+  .portfolio-container {
+    padding: 20px;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .neon-card {
+    margin-bottom: 15px;
+  }
+  .tech-icon img {
+    width: 50px;
+    height: 50px;
+  }
+  .tech-icon p {
+    font-size: 12px;
+  }
+  .title-buttons button {
+    font-size: 16px !important;
+  }
+  .title-buttons button.active-tab {
+    border: 2px solid #00ffff; /* Neon border for active button */
+    /* box-shadow: 0 0 10px #00ffff; Optional glow effect */
+    border-radius: 5px;
+  }
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Portfolio Section */
+.portfolio-section {
+  padding: 60px 0;
+  background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(0, 225, 255, 0.1) 0%, transparent 50%);
+  z-index: 0;
+}
+
+
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 5px #00e1ff, 0 0 10px rgba(0, 225, 255, 0.5);
+  }
+  to {
+    text-shadow: 0 0 10px #00e1ff, 0 0 20px rgba(0, 225, 255, 0.7), 0 0 30px rgba(0, 225, 255, 0.3);
+  }
+}
+
+.subtitle {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: #ddd;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tab Buttons */
+.title-buttons {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.tab-button {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: #00e1ff !important;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(0, 225, 255, 0.1);
+  transition: width 0.4s ease;
+  z-index: -1;
+}
+
+.tab-button:hover::before {
+  width: 100%;
+}
+
+.tab-button.active-tab {
+  border: 2px solid #00e1ff;
+  box-shadow: 0 0 15px rgba(0, 225, 255, 0.5);
+  background: rgba(0, 225, 255, 0.1);
+}
+
+/* Tabs Container */
+.portfolio-tabs {
+  margin-top: 20px;
+}
+
+/* Projects Tab */
+.projects-tab {
+  padding: 20px 0;
+}
+
+.project-card-wrapper {
+  perspective: 1000px;
+  height: 100%;
+}
+
+.neon-project-card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(0, 225, 255, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-wrapper.hovered .neon-project-card {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 225, 255, 0.2);
+  border-color: #00e1ff;
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card-wrapper.hovered .project-image {
+  transform: scale(1.05);
+}
+
+.project-tags {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 10px;
+}
+
+.tag {
+  background: rgba(0, 225, 255, 0.2);
+  color: #00e1ff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  border: 1px solid rgba(0, 225, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.project-body {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.project-title {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.title-underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00e1ff;
+  transition: width 0.4s ease;
+}
+
+.project-card-wrapper.hovered .title-underline {
+  width: 100%;
+}
+
+.project-desc {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  min-height: 60px;
+}
+
+.project-button {
+  border: 1px solid #00e1ff;
+  color: #00e1ff;
+  background: transparent;
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.project-button:hover {
+  background: #00e1ff;
+  color: #0a0a0a;
+  transform: translateY(-2px);
+}
+
+.card-hover-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 225, 255, 0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-card-wrapper.hovered .card-hover-light {
+  opacity: 1;
+}
+
+/* Certificates Tab */
+.certificates-tab {
+  padding: 20px 0;
+}
+
+.certificate-wrapper {
+  perspective: 1000px;
+  height: 100%;
+}
+
+.neon-certificate-card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(0, 225, 255, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.neon-certificate-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 225, 255, 0.2);
+  border-color: #00e1ff;
+}
+
+.certificate-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.certificate-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.neon-certificate-card:hover .certificate-image {
+  transform: scale(1.05);
+}
+
+.certificate-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neon-certificate-card:hover .certificate-overlay {
+  opacity: 1;
+}
+
+.view-button {
+  border: 2px solid #00e1ff;
+  background: transparent;
+  color: #00e1ff;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-button:hover {
+  background: #00e1ff;
+  color: #0a0a0a;
+  transform: scale(1.05);
+}
+
+.certificate-body {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.certificate-title {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.certificate-underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00e1ff;
+  transition: width 0.4s ease;
+}
+
+.neon-certificate-card:hover .certificate-underline {
+  width: 100%;
+}
+
+.certificate-issuer, .certificate-date {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.certificate-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 225, 255, 0.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.neon-certificate-card:hover .certificate-hover-effect {
+  opacity: 1;
+}
+
+/* Technologies Tab */
+.technologies-tab {
+  padding: 20px 0;
+}
+
+.tech-icon-wrapper {
+  perspective: 1000px;
+  height: 100%;
+}
+
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 225, 255, 0.2);
+  transition: all 0.4s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-icon:hover {
+  transform: translateY(-5px);
+  border-color: #00e1ff;
+  box-shadow: 0 10px 20px rgba(0, 225, 255, 0.2);
+}
+
+.tech-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.tech-icon:hover .tech-image {
+  transform: scale(1.1) rotate(5deg);
+}
+
+
+
+
+.certificate-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10; /* Ensure it's above other elements */
+  pointer-events: none; /* Initially not clickable */
+}
+
+.neon-certificate-card:hover .certificate-overlay {
+  opacity: 1;
+  pointer-events: auto; /* Becomes clickable on hover */
+}
+
+.view-button {
+  pointer-events: auto; /* Always clickable */
+  z-index: 11; /* Above the overlay */
+}
