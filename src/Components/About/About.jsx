@@ -2,14 +2,14 @@ import React, { useEffect, useState, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../assets/css/about.css";
-import profileImage from "../assets/images/profile.png";
 
 const About = () => {
   const skills = [
-    { name: "HTML CSS", level: 85 },
-    { name: "JavaScript", level: 75 },
-    { name: "React JS", level: 50 },
-    { name: "Django", level: 90 },
+    { name: "React Native (iOS & Android)", level: 95 },
+    { name: "React.js / Next.js", level: 90 },
+    { name: "Node / Express / NestJS", level: 85 },
+    { name: "MongoDB / PostgreSQL", level: 80 },
+    { name: "Firebase & AI APIs", level: 85 },
   ];
 
   const skillSectionRef = useRef(null);
@@ -47,7 +47,7 @@ const About = () => {
                     <div className="col-sm-6 col-md-5">
                       <div className="about-img">
                         <img
-                          src={profileImage}
+                          src={`${process.env.PUBLIC_URL}/Qadeer.png`}
                           alt="Profile"
                           className="img-fluid rounded"
                         />
@@ -56,7 +56,7 @@ const About = () => {
                     <div className="col-sm-6 col-md-7">
                       <div className="about-info">
                         <p>
-                          <span className="title-s">Name: </span>Qadeer Saleman
+                          <span className="title-s">Name: </span>Qadeer Suleman
                         </p>
                         <p>
                           <span className="title-s">Profile: </span>Full Stack
@@ -84,9 +84,8 @@ const About = () => {
                         </div>
                         <div className="custom-progress">
                           <div
-                            className={`custom-progress-bar ${
-                              animateSkills ? "animate" : ""
-                            }`}
+                            className={`custom-progress-bar ${animateSkills ? "animate" : ""
+                              }`}
                             style={{
                               width: animateSkills ? `${skill.level}%` : "0%",
                             }}
@@ -104,10 +103,9 @@ const About = () => {
                       <h5 className="title-left">About Me</h5>
                     </div>
                     <p className="lead text-light">
-                      I'm a Final Year BSCS Computer Science student at Shah
-                      Abdul Latif University, passionate about full-stack web
-                      and app development. I work with HTML, CSS, JavaScript,
-                      Bootstrap, Django, and MySQL.
+                      I completed my BSCS in 2026 at Shah Abdul Latif University with a 3.80/4.0 CGPA. I specialize in building
+                      mobile apps (iOS & Android) and web applications using React, React Native, Node.js, Express, NestJS,
+                      MongoDB and PostgreSQL. I also integrate payments, maps, camera features, AI APIs, and AR where required.
                     </p>
                     <p className="lead text-light">
                       Over the past three years, I’ve created 50+ real-world

@@ -4,41 +4,59 @@ import "aos/dist/aos.css";
 import "../assets/css/services.css";
 
 const servicesData = [
-  { 
-    title: "App Development", 
-    icon: "bi bi-phone", 
-    desc: "Creating high-quality mobile applications with seamless performance and intuitive UX.",
-    color: "#6366f1"
+  {
+    title: "Mobile App Development",
+    icon: "bi bi-phone",
+    desc: "iOS & Android apps with React Native, Expo or native bridges — optimized for performance and accessibility.",
+    color: "#6366f1",
   },
-  { 
-    title: "Web Development", 
-    icon: "bi bi-code-square", 
-    desc: "Building robust, scalable web applications using cutting-edge technologies.",
-    color: "#10b981"
+  {
+    title: "Payment Integration",
+    icon: "bi bi-credit-card-2-front",
+    desc: "Secure in-app and web payments (Stripe, PayPal, Paystack) with PCI-aware flows and webhook handling.",
+    color: "#ef4444",
   },
-  { 
-    title: "WordPress Dev", 
-    icon: "bi bi-wordpress", 
-    desc: "Custom WordPress solutions with optimized performance and security.",
-    color: "#3b82f6"
+  {
+    title: "Maps & Location",
+    icon: "bi bi-geo-alt",
+    desc: "Google Maps integration, geolocation, routing and location-based features for mobile and web.",
+    color: "#10b981",
   },
-  { 
-    title: "Responsive Design", 
-    icon: "bi bi-layout-wtf", 
-    desc: "Pixel-perfect designs that adapt flawlessly to any device.",
-    color: "#f59e0b"
+  {
+    title: "Camera & Media",
+    icon: "bi bi-camera",
+    desc: "Camera, gallery, and media handling with performant uploads and client-side processing.",
+    color: "#f59e0b",
   },
-  { 
-    title: "UI/UX Design", 
-    icon: "bi bi-palette2", 
-    desc: "Beautiful interfaces with intuitive user experiences that convert.",
-    color: "#ec4899"
+  {
+    title: "AI & API Integrations",
+    icon: "bi bi-brain",
+    desc: "Integrate AI APIs for chat, vision, embeddings, and custom models to add smart features.",
+    color: "#8b5cf6",
   },
-  { 
-    title: "SEO Optimization", 
-    icon: "bi bi-graph-up-arrow", 
-    desc: "Data-driven strategies to boost your search rankings and traffic.",
-    color: "#8b5cf6"
+  {
+    title: "AR & 3D Experiences",
+    icon: "bi bi-cube",
+    desc: "AR interactions and lightweight 3D viewers for immersive product demos and prototypes.",
+    color: "#ec4899",
+  },
+  {
+    title: "Backend & APIs",
+    icon: "bi bi-server",
+    desc: "NestJS / Express APIs, authentication, role-based access, and scalable services with Node.js.",
+    color: "#3b82f6",
+  },
+  {
+    title: "Databases & DevOps",
+    icon: "bi bi-database",
+    desc: "MongoDB and PostgreSQL setups, migrations, backups, and deployment-ready configurations.",
+    color: "#06b6d4",
+  },
+  {
+    title: "Play Store & App Store",
+    icon: "bi bi-google-play",
+    desc: "App packaging, store listing, screenshots, and submission guidance to publish on Play Store / App Store.",
+    color: "#22c55e",
   },
 ];
 

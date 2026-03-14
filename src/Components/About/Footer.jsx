@@ -15,7 +15,7 @@ const Footer = () => {
         <Row className="text-center">
           <Col>
             <p className="footer-text">
-              © 2025 Qadeer Saleeman. All Rights Reserved.
+              © 2026 Qadeer Suleman. All Rights Reserved.
             </p>
           </Col>
         </Row>

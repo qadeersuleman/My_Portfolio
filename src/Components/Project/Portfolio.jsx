@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Tab, Tabs, Card, Row, Col, Button } from "react-bootstrap";
+import { Tab, Tabs, Card, Row, Col, Button, Modal } from "react-bootstrap";
+import {
+  SiReact, SiNodedotjs, SiExpress, SiNestjs,
+  SiNextdotjs, SiMongodb, SiPostgresql, SiFirebase, SiOpenai
+} from "react-icons/si";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../assets/css/portfolio.css";
-import htmlImage from "../assets/images/html.png";
-import cssImage from "../assets/images/css.png";
-import jsImage from "../assets/images/js.png";
-import jqImage from "../assets/images/jquery.png";
-import bootImage from "../assets/images/bootstrap.png";
-import ReactImage from "../assets/images/React.png";
-import PyhtonImage from "../assets/images/python.png";
-import DjangoImage from "../assets/images/django.png";
-import flaskImage from "../assets/images/flask.png";
-import CppImage from "../assets/images/cpp.png";
-import JavaImage from "../assets/images/java.png";
-import SqlImage from "../assets/images/MySQL.png";
+
 
 // Certificates
 import Hierrachy_Certificate from "../assets/images/Certificates/Hierarachy.jpg";
@@ -22,50 +15,40 @@ import Numpy_Certificate from "../assets/images/Certificates/Numpy.jpg";
 import CPP_Certificate from "../assets/images/Certificates/CPP.jpg";
 import Java_Certificate from "../assets/images/Certificates/Java.jpg";
 
-// Projects
-import Ecommerce from "../assets/images/Projects/Ecommerce.jpg";
-import PortfolioImage from "../assets/images/Projects/Portfolio.jpg";
-import DigitalMarketing from "../assets/images/Projects/digitalMarketing.jpg";
-import TourismApp from "../assets/images/Projects/Tourism.jpg";
-import ChatBot from "../assets/images/Projects/ChatBot.jpg";
-import Solar from "../assets/images/Projects/Solar.jpg";
+// Projects HD Mockups
+import Ecommerce_HD from "../assets/images/Projects/Ecommerce_HD.png";
+import Travel_HD from "../assets/images/Projects/Travel_HD.png";
+import Fitness_HD from "../assets/images/Projects/Fitness_HD.png";
+import AI_Chat_HD from "../assets/images/Projects/AI_Chat_HD.png";
 
 const projects = [
   {
-    title: "Ecommerce",
-    desc: "Online platform for dry and clean clothes using Paystack payment method. Simplifies laundry services with seamless transactions.",
-    img: Ecommerce,
-    tags: ["React", "Django.py", "MYSQL"],
+    title: "Premium E-commerce App",
+    desc: "A high-end React Native application with deep IAP (In-App Purchase) integration, seamless secure payments (Stripe/Apple Pay), and a luxurious dark-themed UI for high-conversion sales.",
+    img: Ecommerce_HD,
+    fullDesc: "This project features a complete shopping experience with real-time inventory, user profiles, and advanced payment gateways. Built with React Native and Redux for state management, it ensures smooth performance on both iOS and Android.",
+    tags: ["React Native", "IAP", "Stripe", "Redux"],
   },
   {
-    title: "Digital Marketing",
-    desc: "Strategized campaigns to boost brand visibility and engagement. Utilized SEO, social media, and analytics for optimal results.",
-    img: DigitalMarketing,
-    tags: ["WordPress", "Elementor", "Plugins"],
+    title: "Smart Travel Assistant",
+    desc: "Mobile companion for travelers featuring real-time Google Maps integration, custom location markers, and offline routing capabilities for a flawless exploration experience.",
+    img: Travel_HD,
+    fullDesc: "Leveraging Google Maps API and native camera features, this app allows users to document their journeys and find hidden gems with GPS-based recommendations. Includes Firebase for real-time data sync.",
+    tags: ["Google Maps", "Firebase", "GPS", "Camera"],
   },
   {
-    title: "My Portfolio",
-    desc: "A personal portfolio showcasing skills, projects, and achievements. Designed to reflect creativity and professional expertise.",
-    img: PortfolioImage,
-    tags: ["React", "Bootstrap", "AOS"],
+    title: "AI Fitness Coach",
+    desc: "Next-gen fitness app using Camera AI for posture correction and real-time workout tracking. Features stunning dark-mode aesthetics and interactive progress charts.",
+    img: Fitness_HD,
+    fullDesc: "Integrated with AI APIs for real-time posture analysis via the device camera. It monitors form during exercises and provides instant feedback to prevent injuries and optimize performance.",
+    tags: ["AI APIs", "Camera", "React Native", "Reanimated"],
   },
   {
-    title: "Solar Website",
-    desc: "Informative website promoting solar energy solutions. Highlights benefits, services, and sustainable energy practices.",
-    img: Solar,
-    tags: ["React", "Bootstrap", "CSS"],
-  },
-  {
-    title: "AI ChatBot",
-    desc: "Intelligent chatbot for customer support and engagement. Built with natural language processing for seamless interactions.",
-    img: ChatBot,
-    tags: ["React Native", "Python", "TensorFlow"],
-  },
-  {
-    title: "Tourism App",
-    desc: "Mobile app for exploring travel destinations and planning trips. Features include guides, bookings, and local recommendations.",
-    img: TourismApp,
-    tags: ["React Native", "Firebase", "Google Maps"],
+    title: "Futuristic AI Chatbot",
+    desc: "Advanced conversational AI integrated into a mobile interface, featuring voice activation, smart context awareness, and a sleek glassmorphic UI design.",
+    img: AI_Chat_HD,
+    fullDesc: "Powered by OpenAI's GPT-4 via API, this chatbot provides intelligent responses and integrates with system tools for a seamless assistant experience. Includes beautiful animations and voice recognition.",
+    tags: ["OpenAI", "Next.js", "Node.js", "Socket.io"],
   },
 ];
 
@@ -97,24 +80,24 @@ const certificates = [
 ];
 
 const technologies = [
-  { name: "HTML", img: htmlImage },
-  { name: "CSS", img: cssImage },
-  { name: "JavaScript", img: jsImage },
-  { name: "Jquery", img: jqImage },
-  { name: "React", img: ReactImage },
-  { name: "Bootstrap", img: bootImage },
-  { name: "Python", img: PyhtonImage },
-  { name: "Django", img: DjangoImage },
-  { name: "Flask", img: flaskImage },
-  { name: "C++", img: CppImage },
-  { name: "Java", img: JavaImage },
-  { name: "MySQL", img: SqlImage },
+  { name: "React Native", icon: <SiReact color="#61DAFB" /> },
+  { name: "React", icon: <SiReact color="#61DAFB" /> },
+  { name: "Express", icon: <SiExpress color="#000000" /> },
+  { name: "Node.js", icon: <SiNodedotjs color="#339933" /> },
+  { name: "NestJS", icon: <SiNestjs color="#E0234E" /> },
+  { name: "Next.js", icon: <SiNextdotjs color="#000000" /> },
+  { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
+  { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
+  { name: "AI APIs", icon: <SiOpenai color="#412991" /> },
 ];
 
 const Portfolio = () => {
   const [key, setKey] = useState("projects");
   const [animateTech, setAnimateTech] = useState(false);
   const [visibleTech, setVisibleTech] = useState([]);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
 
   useEffect(() => {
@@ -136,8 +119,16 @@ const Portfolio = () => {
       });
     } else {
       setAnimateTech(false);
+      setVisibleTech([]);
     }
   }, [key]);
+
+  const handleShowModal = (project) => {
+    setSelectedProject(project);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => setShowModal(false);
 
   const handleCardHover = (index) => {
     setHoveredCard(index);
@@ -212,13 +203,12 @@ const Portfolio = () => {
                 data-aos-delay={index * 100}
               >
                 <div
-                  className={`project-card-wrapper ${
-                    hoveredCard === index ? "hovered" : ""
-                  }`}
+                  className={`project-card-wrapper ${hoveredCard === index ? "hovered" : ""
+                    }`}
                   onMouseEnter={() => handleCardHover(index)}
                   onMouseLeave={handleCardLeave}
                 >
-                  <Card className="neon-project-card">
+                  <Card className="neon-project-card" onClick={() => handleShowModal(project)}>
                     <div className="project-image-container">
                       <Card.Img
                         variant="top"
@@ -238,13 +228,16 @@ const Portfolio = () => {
                         {project.title}
                         <div className="title-underline"></div>
                       </Card.Title>
-                      <Card.Text className="project-desc text-dark">
+                      <Card.Text className="project-desc color-dark">
                         {project.desc}
                       </Card.Text>
                       <Button
                         variant="outline-primary"
                         className="project-button"
-                        // onClick={() => window.open('#', '_blank')}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleShowModal(project);
+                        }}
                       >
                         View Details
                       </Button>
@@ -337,11 +330,7 @@ const Portfolio = () => {
               >
                 <div className="tech-icon-wrapper">
                   <div className="tech-icon">
-                    <img
-                      src={tech.img}
-                      alt={tech.name}
-                      className="tech-image"
-                    />
+                    <div className="tech-react-icon">{tech.icon}</div>
                     <p className="tech-name">{tech.name}</p>
                   </div>
                   <div className="tech-hover-light"></div>
@@ -351,6 +340,36 @@ const Portfolio = () => {
           </Row>
         </Tab>
       </Tabs>
+      {/* Project Details Modal */}
+      <Modal show={showModal} onHide={handleCloseModal} size="lg" centered className="project-detail-modal">
+        {selectedProject && (
+          <>
+            <Modal.Header closeButton>
+              <Modal.Title>{selectedProject.title}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="modal-image-container">
+                <img src={selectedProject.img} alt={selectedProject.title} className="modal-image" />
+              </div>
+              <div className="modal-content-container">
+                <h5>About this project</h5>
+                <p>{selectedProject.fullDesc}</p>
+                <div className="modal-tags">
+                  {selectedProject.tags.map((tag, i) => (
+                    <span key={i} className="modal-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Close
+              </Button>
+              <Button variant="primary">Visit Project</Button>
+            </Modal.Footer>
+          </>
+        )}
+      </Modal>
     </div>
   );
 };

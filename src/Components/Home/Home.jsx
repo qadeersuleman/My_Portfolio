@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/Home.css";
-import profileImage from "../assets/images/profile.png";
 import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,11 +12,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const roles = [
-  "Full Stack Developer",
-  "Web Developer",
-  "AI, ML Developer",
-  "Application Developer",
-  "WordPress Developer",
+  "React Native Developer",
+  "iOS & Android App Expert",
+  "IAP Payment Integration",
+  "Google Maps & Camera Logic",
+  "Full Stack AI Solutions",
 ];
 
 const Home = () => {
@@ -34,7 +33,7 @@ const Home = () => {
 
   useEffect(() => {
     AOS.init({ duration: 1000, easing: 'ease-out-quad' });
-    
+
     // Create floating bubbles with different shapes
     const bubbleArray = Array.from({ length: 15 }, (_, i) => ({
       id: i,
@@ -95,7 +94,7 @@ const Home = () => {
           {/* Profile Image - Comes First on Mobile */}
           <div className="image-section" data-aos="fade-down">
             <div className="profile-frame">
-              <img src={profileImage} alt="Qadeer Suleman" className="profile-pic" />
+              <img src={`${process.env.PUBLIC_URL}/Qadeer.png`} alt="Qadeer Suleman" className="profile-pic" />
               <div className="profile-glow"></div>
               <div className="profile-dots">
                 {[...Array(12)].map((_, i) => (
@@ -118,10 +117,9 @@ const Home = () => {
               <span className="cursor">|</span>
             </h3>
             <p className="description">
-              I specialize in creating seamless digital experiences by combining 
-              visually appealing front-end designs with robust back-end solutions. 
-              With expertise in modern web technologies, I transform ideas into 
-              functional, user-friendly applications.
+              I specialize in mobile (iOS & Android) and web application development—building beautiful,
+              high-performance apps with React/React Native and robust backends using Node, Express, and NestJS.
+              I integrate payments, maps, camera features, AI APIs, and AR to deliver production-ready products.
             </p>
 
             {/* Social Icons */}
@@ -142,8 +140,23 @@ const Home = () => {
 
             {/* Buttons */}
             <div className="action-buttons">
-              <button className="primary-btn pulse" >Downlaod CV</button>
-              <button className="secondary-btn">Hire Me</button>
+              <a
+                href={`${process.env.PUBLIC_URL}/Qadeer-Resume.pdf`}
+                download="Qadeer_Suleman_CV.pdf"
+                className="primary-btn pulse"
+                style={{ textDecoration: 'none' }}
+              >
+                Download CV
+              </a>
+              <a
+                href="https://wa.me/923023466105?text=Hi Qadeer, I'm interested in hiring you for a project!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="secondary-btn"
+                style={{ textDecoration: 'none' }}
+              >
+                Hire Me
+              </a>
             </div>
           </section>
         </div>
