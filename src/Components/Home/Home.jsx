@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/Home.css";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
   faInstagram,
   faFacebook,
+  faWhatsapp
 } from "@fortawesome/free-brands-svg-icons";
+import { faDownload, faPaperPlane, faCode, faAward, faCheckCircle, faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const roles = [
-  "React Native Developer",
-  "iOS & Android App Expert",
-  "IAP Payment Integration",
-  "Google Maps & Camera Logic",
-  "Full Stack AI Solutions",
+  "React Native Developer (iOS & Android)",
+  "Full Stack Web & Mobile Specialist",
+  "Paystack & Stripe Payment Integrator",
+  "NestJS & Node.js API Architect",
+  "AI & Camera Logic Innovator",
 ];
 
 const Home = () => {
@@ -24,27 +26,24 @@ const Home = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [bubbles, setBubbles] = useState([]);
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const delayBeforeDeleting = 1000;
-
-
-
+  const typingSpeed = 90;
+  const deletingSpeed = 45;
+  const delayBeforeDeleting = 1200;
 
   useEffect(() => {
-    AOS.init({ duration: 1000, easing: 'ease-out-quad' });
+    AOS.init({ duration: 1000, easing: 'ease-out-quad', once: true });
 
-    // Create floating bubbles with different shapes
-    const bubbleArray = Array.from({ length: 15 }, (_, i) => ({
+    // Create floating tech particle nodes
+    const bubbleArray = Array.from({ length: 18 }, (_, i) => ({
       id: i,
-      size: Math.random() * 40 + 20,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      speed: Math.random() * 3 + 1,
+      size: Math.random() * 35 + 15,
+      x: Math.random() * 95,
+      y: Math.random() * 95,
+      speed: Math.random() * 4 + 2,
       delay: Math.random() * 5,
       shape: Math.random() > 0.5 ? 'circle' : 'blob',
-      opacity: Math.random() * 0.3 + 0.1,
-      color: `hsla(${Math.random() * 60 + 180}, 100%, 70%, ${Math.random() * 0.3 + 0.1})`
+      opacity: Math.random() * 0.25 + 0.1,
+      color: `hsla(${Math.random() * 70 + 170}, 100%, 65%, ${Math.random() * 0.25 + 0.1})`
     }));
     setBubbles(bubbleArray);
   }, []);
@@ -72,7 +71,7 @@ const Home = () => {
 
   return (
     <header className="home-section" id="home">
-      {/* Animated Bubbles */}
+      {/* Background Animated Tech Bubbles */}
       {bubbles.map((bubble) => (
         <div
           key={bubble.id}
@@ -91,75 +90,121 @@ const Home = () => {
 
       <Container className="home-container">
         <div className="home-content">
-          {/* Profile Image - Comes First on Mobile */}
-          <div className="image-section" data-aos="fade-down">
-            <div className="profile-frame">
-              <img src={`${process.env.PUBLIC_URL}/Qadeer.png`} alt="Qadeer Suleman" className="profile-pic" />
-              <div className="profile-glow"></div>
-              <div className="profile-dots">
-                {[...Array(12)].map((_, i) => (
-                  <div key={i} className="profile-dot" style={{
-                    '--angle': `${i * 30}deg`,
-                    '--delay': `${i * 0.1}s`
-                  }} />
-                ))}
-              </div>
-            </div>
-          </div>
-
           {/* Text Section */}
-          <section className="text-section" data-aos="fade-up">
-            <h2 className="greeting">
+          <section className="text-section" data-aos="fade-right">
+            <div className="hero-badge">
+              <span className="badge-dot"></span>
+              <span>Available for Full-time Roles & Contracts</span>
+            </div>
+
+            <h1 className="greeting">
               Hi, I'm <span className="highlight">Qadeer Suleman</span>
-            </h2>
-            <h3 className="role">
+            </h1>
+
+            <h2 className="role">
               <span className="role-text">{displayedText}</span>
               <span className="cursor">|</span>
-            </h3>
+            </h2>
+
             <p className="description">
-              I specialize in mobile (iOS & Android) and web application development—building beautiful,
-              high-performance apps with React/React Native and robust backends using Node, Express, and NestJS.
-              I integrate payments, maps, camera features, AI APIs, and AR to deliver production-ready products.
+              Passionate **Software Engineer** specializing in cross-platform mobile apps (iOS & Android) and high-throughput web applications. Expert in **React, React Native, Node.js, Express & NestJS** with deep integration of secure payment gateways (Stripe/Paystack), Google Maps, AI models, and camera pipelines.
             </p>
 
-            {/* Social Icons */}
+            {/* Quick Skills Badges for recruiters */}
+            <div className="hero-skills-pills">
+              <span className="skill-pill">React Native (iOS/Android)</span>
+              <span className="skill-pill">Node / NestJS</span>
+              <span className="skill-pill">MongoDB & Postgres</span>
+              <span className="skill-pill">Paystack & Stripe</span>
+            </div>
+
+            {/* Social Links */}
             <div className="social-icons">
-              <a href="https://www.linkedin.com/in/qadeer-suleman-8707b6296" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://www.linkedin.com/in/qadeer-suleman-8707b6296" target="_blank" rel="noopener noreferrer" className="social-icon" data-cursor="LinkedIn">
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href="https://github.com/qadeersuleman/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://github.com/qadeersuleman/" target="_blank" rel="noopener noreferrer" className="social-icon" data-cursor="GitHub">
                 <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://www.instagram.com/qadeer_sulemann/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://wa.me/923023466105?text=Hi Qadeer, I'm interested in hiring you for a project!" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp" data-cursor="WhatsApp">
+                <FontAwesomeIcon icon={faWhatsapp} />
+              </a>
+              <a href="https://www.instagram.com/qadeer_sulemann/" target="_blank" rel="noopener noreferrer" className="social-icon" data-cursor="Instagram">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="https://www.facebook.com/abdulqadeer.mahar.334" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://www.facebook.com/abdulqadeer.mahar.334" target="_blank" rel="noopener noreferrer" className="social-icon" data-cursor="Facebook">
                 <FontAwesomeIcon icon={faFacebook} />
               </a>
             </div>
 
-            {/* Buttons */}
+            {/* Action Buttons */}
             <div className="action-buttons">
               <a
                 href={`${process.env.PUBLIC_URL}/Qadeer-Resume.pdf`}
                 download="Qadeer_Suleman_CV.pdf"
-                className="primary-btn pulse"
-                style={{ textDecoration: 'none' }}
+                className="primary-btn pulse text-decoration-none"
+                data-cursor="Download"
               >
-                Download CV
+                <FontAwesomeIcon icon={faDownload} className="me-2" /> Download Resume
               </a>
               <a
-                href="https://wa.me/923023466105?text=Hi Qadeer, I'm interested in hiring you for a project!"
+                href="https://wa.me/923023466105?text=Hi Qadeer, I saw your portfolio and would like to discuss an opportunity!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="secondary-btn"
-                style={{ textDecoration: 'none' }}
+                className="secondary-btn text-decoration-none"
+                data-cursor="Hire"
               >
-                Hire Me
+                <FontAwesomeIcon icon={faPaperPlane} className="me-2" /> Hire Me Now
               </a>
             </div>
           </section>
+
+          {/* Profile Image with Orbiting Tech Badges */}
+          <div className="image-section" data-aos="fade-left">
+            <div className="profile-frame">
+              <div className="orbit-ring">
+                <div className="orbit-badge b1">React Native</div>
+                <div className="orbit-badge b2">NestJS</div>
+                <div className="orbit-badge b3">iOS & Android</div>
+                <div className="orbit-badge b4">AI / Stripe</div>
+              </div>
+              <img src={`${process.env.PUBLIC_URL}/Qadeer.png`} alt="Qadeer Suleman" className="profile-pic" />
+              <div className="profile-glow"></div>
+            </div>
+          </div>
         </div>
+
+        {/* High-Impact Recruiter Stats Counter Row */}
+        <Row className="hero-stats-row g-4 mt-5" data-aos="fade-up">
+          <Col md={3} sm={6} xs={6}>
+            <div className="stat-card">
+              <div className="stat-icon"><FontAwesomeIcon icon={faLaptopCode} /></div>
+              <div className="stat-number">50+</div>
+              <div className="stat-label">Projects Completed</div>
+            </div>
+          </Col>
+          <Col md={3} sm={6} xs={6}>
+            <div className="stat-card">
+              <div className="stat-icon"><FontAwesomeIcon icon={faAward} /></div>
+              <div className="stat-number">3.80</div>
+              <div className="stat-label">BSCS Honors CGPA</div>
+            </div>
+          </Col>
+          <Col md={3} sm={6} xs={6}>
+            <div className="stat-card">
+              <div className="stat-icon"><FontAwesomeIcon icon={faCode} /></div>
+              <div className="stat-number">3+ Yrs</div>
+              <div className="stat-label">Full Stack & Mobile</div>
+            </div>
+          </Col>
+          <Col md={3} sm={6} xs={6}>
+            <div className="stat-card">
+              <div className="stat-icon"><FontAwesomeIcon icon={faCheckCircle} /></div>
+              <div className="stat-number">100%</div>
+              <div className="stat-label">Client Satisfaction</div>
+            </div>
+          </Col>
+        </Row>
       </Container>
     </header>
   );

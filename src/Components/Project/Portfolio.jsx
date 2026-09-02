@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Tab, Tabs, Card, Row, Col, Button, Modal } from "react-bootstrap";
+import { Row, Col, Button, Modal, Container } from "react-bootstrap";
 import {
   SiReact, SiNodedotjs, SiExpress, SiNestjs,
-  SiNextdotjs, SiMongodb, SiPostgresql, SiFirebase, SiOpenai
+  SiNextdotjs, SiMongodb, SiPostgresql, SiFirebase, SiOpenai, SiRedux, SiTailwindcss
 } from "react-icons/si";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAward, faLayerGroup, faMobileAlt, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../assets/css/portfolio.css";
-
 
 // Certificates
 import Hierrachy_Certificate from "../assets/images/Certificates/Hierarachy.jpg";
@@ -21,356 +23,394 @@ import Travel_HD from "../assets/images/Projects/Travel_HD.png";
 import Fitness_HD from "../assets/images/Projects/Fitness_HD.png";
 import AI_Chat_HD from "../assets/images/Projects/AI_Chat_HD.png";
 
-const projects = [
+const projectsData = [
   {
-    title: "Premium E-commerce App",
-    desc: "A high-end React Native application with deep IAP (In-App Purchase) integration, seamless secure payments (Stripe/Apple Pay), and a luxurious dark-themed UI for high-conversion sales.",
+    title: "Premium E-commerce Mobile App",
+    category: "mobile",
+    categoryLabel: "React Native iOS & Android",
+    desc: "Cross-platform React Native e-commerce app with deep Paystack/Stripe IAP integration, real-time inventory sync, user auth, and sleek dark mode UI.",
     img: Ecommerce_HD,
-    fullDesc: "This project features a complete shopping experience with real-time inventory, user profiles, and advanced payment gateways. Built with React Native and Redux for state management, it ensures smooth performance on both iOS and Android.",
-    tags: ["React Native", "IAP", "Stripe", "Redux"],
+    fullDesc: "Engineered a production-ready mobile shopping application featuring secure credit card / Apple Pay checkout with Stripe and Paystack webhooks. Built with React Native, Redux Toolkit for state management, and Node.js REST API backend.",
+    features: [
+      "Secure Paystack & Stripe Checkout",
+      "Redux Toolkit Global State Management",
+      "Push Notifications & Order Tracking",
+      "iOS & Android Optimized 60FPS UI"
+    ],
+    tags: ["React Native", "Paystack", "Stripe", "Redux", "Node.js"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
   },
   {
-    title: "Smart Travel Assistant",
-    desc: "Mobile companion for travelers featuring real-time Google Maps integration, custom location markers, and offline routing capabilities for a flawless exploration experience.",
+    title: "Smart Travel & Location Assistant",
+    category: "mobile",
+    categoryLabel: "React Native & Google Maps",
+    desc: "Mobile navigation companion featuring real-time Google Maps integration, custom markers, GPS route calculation, and offline place bookmarking.",
     img: Travel_HD,
-    fullDesc: "Leveraging Google Maps API and native camera features, this app allows users to document their journeys and find hidden gems with GPS-based recommendations. Includes Firebase for real-time data sync.",
-    tags: ["Google Maps", "Firebase", "GPS", "Camera"],
+    fullDesc: "Integrated Google Maps API with React Native Maps, device GPS, and camera logic to let travelers document trips with geo-tagged photos and offline routing. Uses Firebase Firestore for real-time synchronization.",
+    features: [
+      "Google Maps SDK & Geolocation API",
+      "Offline Route Caching & Geo-tagging",
+      "Firebase Firestore Real-time Sync",
+      "Custom Native Camera Integration"
+    ],
+    tags: ["Google Maps", "React Native", "Firebase", "Camera API"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
   },
   {
-    title: "AI Fitness Coach",
-    desc: "Next-gen fitness app using Camera AI for posture correction and real-time workout tracking. Features stunning dark-mode aesthetics and interactive progress charts.",
+    title: "AI Posture & Fitness Coach",
+    category: "ai",
+    categoryLabel: "AI & Camera Vision",
+    desc: "Fitness application leveraging device camera AI for real-time posture correction, workout analytics, and interactive exercise progress charts.",
     img: Fitness_HD,
-    fullDesc: "Integrated with AI APIs for real-time posture analysis via the device camera. It monitors form during exercises and provides instant feedback to prevent injuries and optimize performance.",
-    tags: ["AI APIs", "Camera", "React Native", "Reanimated"],
+    fullDesc: "Integrated custom vision algorithms with OpenAI GPT-4 API to analyze posture keypoints via device camera during workouts, preventing injuries and calculating repetition counts in real time.",
+    features: [
+      "Real-time Camera Vision Keypoint Tracking",
+      "OpenAI GPT-4 Workout Recommendations",
+      "Smooth Animated Progress Metrics",
+      "Dark Mode Cyberpunk UI"
+    ],
+    tags: ["AI APIs", "Camera Vision", "React Native", "OpenAI"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
   },
   {
-    title: "Futuristic AI Chatbot",
-    desc: "Advanced conversational AI integrated into a mobile interface, featuring voice activation, smart context awareness, and a sleek glassmorphic UI design.",
+    title: "Futuristic AI Assistant & Chatbot",
+    category: "web",
+    categoryLabel: "Next.js & Full Stack AI",
+    desc: "Conversational AI assistant interface featuring voice recognition, streaming responses, context memory, and a glassmorphic Web & Mobile layout.",
     img: AI_Chat_HD,
-    fullDesc: "Powered by OpenAI's GPT-4 via API, this chatbot provides intelligent responses and integrates with system tools for a seamless assistant experience. Includes beautiful animations and voice recognition.",
-    tags: ["OpenAI", "Next.js", "Node.js", "Socket.io"],
+    fullDesc: "Powered by OpenAI's GPT-4 API with a custom NestJS backend for session handling, token streaming, and user prompt history. Features voice-to-text input and instant code formatting.",
+    features: [
+      "OpenAI GPT-4 Token Streaming",
+      "NestJS & Express Backend",
+      "Voice Recognition & Audio Playback",
+      "Glassmorphic Dark Mode Design"
+    ],
+    tags: ["Next.js", "NestJS", "OpenAI", "Node.js"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
   },
 ];
 
-const certificates = [
+const certificatesData = [
   {
-    title: "Java",
+    title: "Java Programming Masterclass",
     img: Java_Certificate,
     issuer: "Oracle Academy",
-    date: "1st Oct 2022",
+    date: "2022",
   },
   {
-    title: "C++",
+    title: "C++ Data Structures & Algorithms",
     img: CPP_Certificate,
     issuer: "Coding Ninjas",
-    date: "1st Oct 2022",
+    date: "2022",
   },
   {
-    title: "NumPy Python",
+    title: "NumPy & Data Science Python",
     img: Numpy_Certificate,
     issuer: "Coursera",
-    date: "21st July 2021",
+    date: "2021",
   },
   {
-    title: "AI Participation",
+    title: "AI & Software Tech Symposium",
     img: Hierrachy_Certificate,
     issuer: "Tech Symposium",
-    date: "19th July 2024",
+    date: "2024",
   },
 ];
 
-const technologies = [
-  { name: "React Native", icon: <SiReact color="#61DAFB" /> },
-  { name: "React", icon: <SiReact color="#61DAFB" /> },
-  { name: "Express", icon: <SiExpress color="#000000" /> },
-  { name: "Node.js", icon: <SiNodedotjs color="#339933" /> },
-  { name: "NestJS", icon: <SiNestjs color="#E0234E" /> },
-  { name: "Next.js", icon: <SiNextdotjs color="#000000" /> },
-  { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
-  { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },
-  { name: "Firebase", icon: <SiFirebase color="#FFCA28" /> },
-  { name: "AI APIs", icon: <SiOpenai color="#412991" /> },
+const techStackData = [
+  { name: "React Native", category: "Mobile", icon: <SiReact color="#61DAFB" /> },
+  { name: "React.js", category: "Frontend", icon: <SiReact color="#61DAFB" /> },
+  { name: "Next.js", category: "Frontend", icon: <SiNextdotjs color="#ffffff" /> },
+  { name: "Node.js", category: "Backend", icon: <SiNodedotjs color="#339933" /> },
+  { name: "Express.js", category: "Backend", icon: <SiExpress color="#ffffff" /> },
+  { name: "NestJS", category: "Backend", icon: <SiNestjs color="#E0234E" /> },
+  { name: "MongoDB", category: "Database", icon: <SiMongodb color="#47A248" /> },
+  { name: "PostgreSQL", category: "Database", icon: <SiPostgresql color="#336791" /> },
+  { name: "Firebase", category: "Cloud", icon: <SiFirebase color="#FFCA28" /> },
+  { name: "OpenAI GPT-4 API", category: "AI", icon: <SiOpenai color="#a855f7" /> },
+  { name: "Redux Toolkit", category: "State", icon: <SiRedux color="#764ABC" /> },
+  { name: "Tailwind CSS", category: "Styling", icon: <SiTailwindcss color="#06B6D4" /> },
 ];
 
 const Portfolio = () => {
-  const [key, setKey] = useState("projects");
-  const [animateTech, setAnimateTech] = useState(false);
-  const [visibleTech, setVisibleTech] = useState([]);
+  const [activeTabKey, setActiveTabKey] = useState("projects");
+  const [filterCategory, setFilterCategory] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [showProjectModal, setShowProjectModal] = useState(false);
+  const [selectedCert, setSelectedCert] = useState(null);
+  const [showCertModal, setShowCertModal] = useState(false);
 
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-out-quad",
-      once: false,
-    });
+    AOS.init({ duration: 800, easing: "ease-out-quad", once: true });
   }, []);
 
-  useEffect(() => {
-    if (key === "technologies") {
-      setAnimateTech(true);
-      setVisibleTech([]);
-      technologies.forEach((tech, index) => {
-        setTimeout(() => {
-          setVisibleTech((prev) => [...prev, tech]);
-        }, index * 150);
-      });
-    } else {
-      setAnimateTech(false);
-      setVisibleTech([]);
-    }
-  }, [key]);
+  const filteredProjects = projectsData.filter((p) => {
+    if (filterCategory === "all") return true;
+    return p.category === filterCategory;
+  });
 
-  const handleShowModal = (project) => {
-    setSelectedProject(project);
-    setShowModal(true);
+  const handleOpenProjectModal = (proj) => {
+    setSelectedProject(proj);
+    setShowProjectModal(true);
   };
 
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleCardHover = (index) => {
-    setHoveredCard(index);
-  };
-
-  const handleCardLeave = () => {
-    setHoveredCard(null);
+  const handleOpenCertModal = (cert) => {
+    setSelectedCert(cert);
+    setShowCertModal(true);
   };
 
   return (
-    <div id="projects" className="portfolio-section">
-      <h2
-        className="title text-center"
-        data-aos="fade-down"
-        style={{ textAlign: "center" }}
-      >
-        Portfolio Showcase
-      </h2>
-      <p
-        className="subtitle text-center"
-        data-aos="fade-down"
-        data-aos-delay="100"
-      >
-        Explore my projects, certifications, and skills
-      </p>
+    <section id="projects" className="portfolio-section">
+      <Container>
+        <div className="section-header text-center" data-aos="fade-down">
+          <span className="section-badge">Featured Work & Credentials</span>
+          <h2 className="section-title mt-2">
+            Portfolio <span className="gradient-text">Showcase</span>
+          </h2>
+          <p className="section-subtitle">
+            Explore production mobile apps, backend systems, certifications, and tech stack
+          </p>
+          <div className="divider mx-auto"></div>
+        </div>
 
-      <div
-        className="title-buttons text-center"
-        data-aos="fade-down"
-        data-aos-delay="200"
-      >
-        <Button
-          variant="link"
-          onClick={() => setKey("projects")}
-          className={`tab-button ${key === "projects" ? "active-tab" : ""}`}
-        >
-          Projects
-        </Button>
-        <Button
-          variant="link"
-          onClick={() => setKey("certificates")}
-          className={`tab-button ${key === "certificates" ? "active-tab" : ""}`}
-        >
-          Certificates
-        </Button>
-        <Button
-          variant="link"
-          onClick={() => setKey("technologies")}
-          className={`tab-button ${key === "technologies" ? "active-tab" : ""}`}
-        >
-          Tech Stack
-        </Button>
-      </div>
+        {/* Main Tab Nav: Projects | Certificates | Tech Stack */}
+        <div className="portfolio-main-tabs text-center mt-4 mb-4" data-aos="fade-up">
+          <button
+            className={`main-tab-btn ${activeTabKey === "projects" ? "active" : ""}`}
+            onClick={() => setActiveTabKey("projects")}
+            data-cursor="Projects"
+          >
+            <FontAwesomeIcon icon={faMobileAlt} className="me-2" /> Projects (50+)
+          </button>
+          <button
+            className={`main-tab-btn ${activeTabKey === "certificates" ? "active" : ""}`}
+            onClick={() => setActiveTabKey("certificates")}
+            data-cursor="Certs"
+          >
+            <FontAwesomeIcon icon={faAward} className="me-2" /> Certificates
+          </button>
+          <button
+            className={`main-tab-btn ${activeTabKey === "tech" ? "active" : ""}`}
+            onClick={() => setActiveTabKey("tech")}
+            data-cursor="Stack"
+          >
+            <FontAwesomeIcon icon={faLayerGroup} className="me-2" /> Tech Stack
+          </button>
+        </div>
 
-      <Tabs
-        activeKey={key}
-        onSelect={(k) => setKey(k)}
-        className="portfolio-tabs"
-        data-aos="fade-up"
-        data-aos-delay="300"
-      >
-        {/* Projects Tab */}
-        <Tab eventKey="projects" className="projects-tab" id="projects">
-          <Row className="g-4" style={{ margin: 10 }}>
-            {projects.map((project, index) => (
-              <Col
-                md={4}
-                sm={6}
-                xs={12}
-                key={index}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
+        {/* TAB 1: PROJECTS */}
+        {activeTabKey === "projects" && (
+          <div className="projects-tab-content">
+            {/* Filter Pills */}
+            <div className="project-filter-pills justify-content-center d-flex flex-wrap gap-2 mb-4">
+              <button
+                className={`filter-btn ${filterCategory === "all" ? "active" : ""}`}
+                onClick={() => setFilterCategory("all")}
               >
-                <div
-                  className={`project-card-wrapper ${hoveredCard === index ? "hovered" : ""
-                    }`}
-                  onMouseEnter={() => handleCardHover(index)}
-                  onMouseLeave={handleCardLeave}
-                >
-                  <Card className="neon-project-card" onClick={() => handleShowModal(project)}>
-                    <div className="project-image-container">
-                      <Card.Img
-                        variant="top"
-                        src={project.img}
-                        className="project-image"
-                      />
-                      <div className="project-tags">
-                        {project.tags.map((tag, i) => (
-                          <span key={i} className="tag">
+                All Projects
+              </button>
+              <button
+                className={`filter-btn ${filterCategory === "mobile" ? "active" : ""}`}
+                onClick={() => setFilterCategory("mobile")}
+              >
+                React Native / Mobile
+              </button>
+              <button
+                className={`filter-btn ${filterCategory === "web" ? "active" : ""}`}
+                onClick={() => setFilterCategory("web")}
+              >
+                Full Stack Web
+              </button>
+              <button
+                className={`filter-btn ${filterCategory === "ai" ? "active" : ""}`}
+                onClick={() => setFilterCategory("ai")}
+              >
+                AI & Camera
+              </button>
+            </div>
+
+            <Row className="g-4">
+              {filteredProjects.map((project, index) => (
+                <Col lg={6} md={6} key={index} data-aos="fade-up" data-aos-delay={index * 100}>
+                  <div className="portfolio-card" data-cursor="View">
+                    <div className="card-image-wrapper">
+                      <img src={project.img} alt={project.title} className="card-img" />
+                      <span className="card-category-badge">{project.categoryLabel}</span>
+                      <div className="card-image-overlay">
+                        <button
+                          className="overlay-view-btn"
+                          onClick={() => handleOpenProjectModal(project)}
+                        >
+                          View Recruiter Brief
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="card-content">
+                      <h3 className="card-title-text">{project.title}</h3>
+                      <p className="card-desc-text">{project.desc}</p>
+
+                      <div className="card-tags">
+                        {project.tags.map((tag, tIdx) => (
+                          <span key={tIdx} className="card-tag">
                             {tag}
                           </span>
                         ))}
                       </div>
-                    </div>
-                    <Card.Body className="project-body">
-                      <Card.Title className="project-title">
-                        {project.title}
-                        <div className="title-underline"></div>
-                      </Card.Title>
-                      <Card.Text className="project-desc color-dark">
-                        {project.desc}
-                      </Card.Text>
-                      <Button
-                        variant="outline-primary"
-                        className="project-button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleShowModal(project);
-                        }}
-                      >
-                        View Details
-                      </Button>
-                    </Card.Body>
-                    <div className="card-hover-light"></div>
-                  </Card>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Tab>
 
-        {/* Certificates Tab */}
-        <Tab
-          eventKey="certificates"
-          className="certificates-tab"
-          id="certificates"
-        >
-          <Row className="g-4" style={{ margin: 10 }}>
-            {certificates.map((cert, index) => (
-              <Col
-                md={4}
-                sm={6}
-                xs={12}
-                key={index}
-                data-aos="zoom-in"
-                data-aos-delay={index * 100}
-              >
-                <div className="certificate-wrapper">
-                  <Card className="neon-certificate-card">
-                    <div className="certificate-image-container">
-                      <Card.Img
-                        variant="top"
-                        src={cert.img}
-                        className="certificate-image"
-                        loading="lazy"
-                      />
-                      <div className="certificate-overlay">
+                      <div className="card-actions">
                         <Button
-                          variant="outline-light"
-                          className="view-button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(
-                              cert.img,
-                              "_blank",
-                              "noopener,noreferrer"
-                            );
-                          }}
+                          variant="outline-info"
+                          className="btn-details"
+                          onClick={() => handleOpenProjectModal(project)}
                         >
-                          <i className="bi bi-zoom-in"></i> View Full
+                          Details & Architecture
                         </Button>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-code"
+                        >
+                          <FontAwesomeIcon icon={faGithub} className="me-1" /> Code
+                        </a>
                       </div>
                     </div>
-                    <Card.Body className="certificate-body">
-                      <Card.Title className="certificate-title">
-                        {cert.title}
-                        <div className="certificate-underline"></div>
-                      </Card.Title>
-                      {cert.issuer && (
-                        <Card.Text className="certificate-issuer">
-                          <i className="bi bi-award"></i> {cert.issuer}
-                        </Card.Text>
-                      )}
-                      {cert.date && (
-                        <Card.Text className="certificate-date">
-                          <i className="bi bi-calendar"></i> {cert.date}
-                        </Card.Text>
-                      )}
-                    </Card.Body>
-                    <div className="certificate-hover-effect"></div>
-                  </Card>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Tab>
-
-        {/* Technologies Tab */}
-        <Tab eventKey="technologies" className="technologies-tab" id="tech">
-          <Row className="g-4" style={{ margin: 10 }}>
-            {visibleTech.map((tech, index) => (
-              <Col
-                md={2}
-                sm={3}
-                xs={4}
-                key={index}
-                data-aos={animateTech ? "flip-left" : ""}
-                data-aos-delay={index * 100}
-              >
-                <div className="tech-icon-wrapper">
-                  <div className="tech-icon">
-                    <div className="tech-react-icon">{tech.icon}</div>
-                    <p className="tech-name">{tech.name}</p>
                   </div>
-                  <div className="tech-hover-light"></div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Tab>
-      </Tabs>
+                </Col>
+              ))}
+            </Row>
+          </div>
+        )}
+
+        {/* TAB 2: CERTIFICATES */}
+        {activeTabKey === "certificates" && (
+          <div className="certificates-tab-content">
+            <Row className="g-4">
+              {certificatesData.map((cert, index) => (
+                <Col lg={3} md={6} key={index} data-aos="zoom-in" data-aos-delay={index * 100}>
+                  <div className="cert-card" onClick={() => handleOpenCertModal(cert)} data-cursor="Inspect">
+                    <div className="cert-image-wrap">
+                      <img src={cert.img} alt={cert.title} className="cert-img" />
+                      <div className="cert-hover-overlay">
+                        <FontAwesomeIcon icon={faAward} className="cert-icon" />
+                        <span>Inspect Certificate</span>
+                      </div>
+                    </div>
+                    <div className="cert-info">
+                      <h4 className="cert-title">{cert.title}</h4>
+                      <p className="cert-issuer">{cert.issuer} • {cert.date}</p>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+        )}
+
+        {/* TAB 3: TECH STACK GRID */}
+        {activeTabKey === "tech" && (
+          <div className="tech-tab-content">
+            <Row className="g-3">
+              {techStackData.map((tech, index) => (
+                <Col lg={3} md={4} sm={6} xs={6} key={index} data-aos="fade-up" data-aos-delay={index * 50}>
+                  <div className="tech-grid-card">
+                    <div className="tech-icon-container">{tech.icon}</div>
+                    <div className="tech-details">
+                      <h4 className="tech-name">{tech.name}</h4>
+                      <span className="tech-cat">{tech.category}</span>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+        )}
+      </Container>
+
       {/* Project Details Modal */}
-      <Modal show={showModal} onHide={handleCloseModal} size="lg" centered className="project-detail-modal">
+      <Modal
+        show={showProjectModal}
+        onHide={() => setShowProjectModal(false)}
+        size="lg"
+        centered
+        className="custom-portfolio-modal"
+      >
         {selectedProject && (
           <>
             <Modal.Header closeButton>
-              <Modal.Title>{selectedProject.title}</Modal.Title>
+              <Modal.Title className="modal-header-title">
+                {selectedProject.title}
+              </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-              <div className="modal-image-container">
-                <img src={selectedProject.img} alt={selectedProject.title} className="modal-image" />
+            <Modal.Body className="p-4">
+              <div className="modal-img-container mb-4">
+                <img src={selectedProject.img} alt={selectedProject.title} className="w-100 rounded-3" />
               </div>
-              <div className="modal-content-container">
-                <h5>About this project</h5>
-                <p>{selectedProject.fullDesc}</p>
-                <div className="modal-tags">
-                  {selectedProject.tags.map((tag, i) => (
-                    <span key={i} className="modal-tag">{tag}</span>
-                  ))}
-                </div>
+
+              <h5 className="modal-section-title">Project Overview</h5>
+              <p className="modal-desc">{selectedProject.fullDesc}</p>
+
+              <h5 className="modal-section-title mt-4">Key Recruiter & Technical Highlights</h5>
+              <div className="modal-features-list mb-4">
+                {selectedProject.features.map((feat, fIdx) => (
+                  <div key={fIdx} className="feature-row d-flex align-items-center gap-2 mb-2">
+                    <FontAwesomeIcon icon={faCheckCircle} className="text-info" />
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
+
+              <h5 className="modal-section-title">Tech Stack Tags</h5>
+              <div className="d-flex flex-wrap gap-2 mt-2">
+                {selectedProject.tags.map((t, i) => (
+                  <span key={i} className="card-tag">
+                    {t}
+                  </span>
+                ))}
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseModal}>
+              <Button variant="secondary" onClick={() => setShowProjectModal(false)}>
                 Close
               </Button>
-              <Button variant="primary">Visit Project</Button>
+              <a
+                href={selectedProject.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                <FontAwesomeIcon icon={faGithub} className="me-2" /> View GitHub Repository
+              </a>
             </Modal.Footer>
           </>
         )}
       </Modal>
-    </div>
+
+      {/* Certificate Viewer Modal */}
+      <Modal
+        show={showCertModal}
+        onHide={() => setShowCertModal(false)}
+        size="lg"
+        centered
+        className="custom-portfolio-modal"
+      >
+        {selectedCert && (
+          <>
+            <Modal.Header closeButton>
+              <Modal.Title>{selectedCert.title} - {selectedCert.issuer}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="text-center p-3">
+              <img src={selectedCert.img} alt={selectedCert.title} className="img-fluid rounded shadow-lg" />
+            </Modal.Body>
+          </>
+        )}
+      </Modal>
+    </section>
   );
 };
 

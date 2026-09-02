@@ -1,0 +1,175 @@
+/* Developer CLI Terminal Styles */
+.terminal-toggle-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid #00e1ff;
+  color: #00e1ff;
+  padding: 0.75rem 1.2rem;
+  border-radius: 50px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 9995;
+  box-shadow: 0 10px 25px rgba(0, 225, 255, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.terminal-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: #00e1ff;
+  color: #0f172a;
+  box-shadow: 0 15px 35px rgba(0, 225, 255, 0.5);
+}
+
+.terminal-window {
+  position: fixed;
+  bottom: 85px;
+  right: 25px;
+  width: min(550px, 92vw);
+  height: 380px;
+  background: rgba(10, 15, 26, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 225, 255, 0.3);
+  border-radius: 16px;
+  z-index: 9996;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.terminal-header {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.terminal-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.terminal-dots .red { background: #ef4444; }
+.terminal-dots .yellow { background: #f59e0b; }
+.terminal-dots .green { background: #10b981; }
+
+.terminal-title {
+  font-size: 0.78rem;
+  color: rgba(226, 232, 240, 0.6);
+}
+
+.terminal-close-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  font-size: 0.82rem;
+  color: #10b981;
+  line-height: 1.5;
+}
+
+.log-line {
+  margin-bottom: 0.3rem;
+  white-space: pre-wrap;
+}
+
+.log-line.user-cmd {
+  color: #00e1ff;
+  font-weight: 700;
+}
+
+.log-line.ai-cmd {
+  color: #38bdf8;
+}
+
+.log-line.notice-cmd {
+  color: #f59e0b;
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
+.loading-pulse {
+  color: #a855f7;
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.terminal-pills {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+}
+
+.terminal-pills button {
+  background: rgba(0, 225, 255, 0.1);
+  border: 1px solid rgba(0, 225, 255, 0.2);
+  color: #00e1ff;
+  font-size: 0.72rem;
+  font-family: inherit;
+  padding: 0.15rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.terminal-pills button:hover {
+  background: #00e1ff;
+  color: #0f172a;
+}
+
+.terminal-input-form {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prompt-symbol {
+  color: #a855f7;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-family: inherit;
+}

@@ -1,52 +1,24 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faLinkedin,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-import "../assets/css/Footer.css"; // Import the CSS
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import "../assets/css/Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="neon-footer" id="service">
+    <footer className="footer-section">
       <Container>
-        <Row className="text-center">
-          <Col>
-            <p className="footer-text">
-              © 2026 Qadeer Suleman. All Rights Reserved.
-            </p>
-          </Col>
-        </Row>
-        <Row className="text-center">
-          <Col>
-            <a
-              href="https://www.facebook.com/abdulqadeer.mahar.334"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <FontAwesomeIcon icon={faFacebook} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/qadeer-suleman-8707b6296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
-            </a>
-            <a
-              href="https://github.com/qadeersuleman/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <FontAwesomeIcon icon={faGithub} />
-            </a>
-          </Col>
-        </Row>
+        <div className="footer-content text-center py-4">
+          <div className="footer-brand mb-2">
+            <span className="brand-logo-hex">&lt;Q/S&gt;</span>
+            <span className="brand-name ms-2">Qadeer Suleman</span>
+          </div>
+
+          <p className="footer-copyright mb-1">
+            © {new Date().getFullYear()} Qadeer Suleman. Built with React & <FontAwesomeIcon icon={faHeart} className="text-danger mx-1" /> for Recruiters & Clients worldwide.
+          </p>
+          <span className="footer-subtext">Cross-Platform Mobile (iOS & Android) & Full Stack Web Architecture</span>
+        </div>
       </Container>
     </footer>
   );

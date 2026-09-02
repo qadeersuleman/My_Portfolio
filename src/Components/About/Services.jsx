@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Container } from "react-bootstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../assets/css/services.css";
@@ -7,63 +8,65 @@ const servicesData = [
   {
     title: "Mobile App Development",
     icon: "bi bi-phone",
-    desc: "iOS & Android apps with React Native, Expo or native bridges — optimized for performance and accessibility.",
-    color: "#6366f1",
+    desc: "Cross-platform iOS & Android mobile apps built with React Native — delivering native 60fps performance, custom animations, and offline capabilities.",
+    color: "#00e1ff",
+    badge: "Most Popular",
   },
   {
-    title: "Payment Integration",
+    title: "Payment & IAP Gateways",
     icon: "bi bi-credit-card-2-front",
-    desc: "Secure in-app and web payments (Stripe, PayPal, Paystack) with PCI-aware flows and webhook handling.",
-    color: "#ef4444",
+    desc: "PCI-compliant in-app purchases and checkout flows integrated with Paystack, Stripe, and Apple Pay including secure webhooks.",
+    color: "#a855f7",
+    badge: "High Demand",
   },
   {
-    title: "Maps & Location",
+    title: "Google Maps & Geolocation",
     icon: "bi bi-geo-alt",
-    desc: "Google Maps integration, geolocation, routing and location-based features for mobile and web.",
+    desc: "Real-time GPS tracking, custom map markers, distance matrices, routing algorithms, and location-based mobile services.",
     color: "#10b981",
+    badge: "Real-Time",
   },
   {
-    title: "Camera & Media",
+    title: "Camera & Vision Logic",
     icon: "bi bi-camera",
-    desc: "Camera, gallery, and media handling with performant uploads and client-side processing.",
+    desc: "Performant device camera integrations, real-time posture analysis, image capture workflows, and media processing pipelines.",
     color: "#f59e0b",
+    badge: "Specialized",
   },
   {
-    title: "AI & API Integrations",
+    title: "AI & Smart API Systems",
     icon: "bi bi-brain",
-    desc: "Integrate AI APIs for chat, vision, embeddings, and custom models to add smart features.",
-    color: "#8b5cf6",
-  },
-  {
-    title: "AR & 3D Experiences",
-    icon: "bi bi-cube",
-    desc: "AR interactions and lightweight 3D viewers for immersive product demos and prototypes.",
+    desc: "Integrating OpenAI GPT-4, vision models, smart chatbots, semantic embeddings, and automated AI assistance into web and mobile platforms.",
     color: "#ec4899",
+    badge: "Next-Gen",
   },
   {
-    title: "Backend & APIs",
+    title: "Backend & API Architecture",
     icon: "bi bi-server",
-    desc: "NestJS / Express APIs, authentication, role-based access, and scalable services with Node.js.",
+    desc: "Robust RESTful APIs, JWT role-based authentication, microservices, and high-throughput server backends with NestJS and Node.js.",
     color: "#3b82f6",
+    badge: "Scalable",
   },
   {
-    title: "Databases & DevOps",
+    title: "Database Engineering",
     icon: "bi bi-database",
-    desc: "MongoDB and PostgreSQL setups, migrations, backups, and deployment-ready configurations.",
+    desc: "Schema design, index optimization, and data migrations using MongoDB & PostgreSQL for high availability.",
     color: "#06b6d4",
+    badge: "Data",
   },
   {
-    title: "Play Store & App Store",
+    title: "App Store & Play Store Publishing",
     icon: "bi bi-google-play",
-    desc: "App packaging, store listing, screenshots, and submission guidance to publish on Play Store / App Store.",
+    desc: "End-to-end mobile app packaging, keystore generation, App Store Connect & Google Play Console publishing compliance.",
     color: "#22c55e",
+    badge: "Deployment",
   },
 ];
 
 const Services = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 800,
       easing: 'ease-out-quad',
       once: true
     });
@@ -71,13 +74,16 @@ const Services = () => {
 
   return (
     <section id="service" className="services-section">
-      <div className="container">
-        <div className="section-header" data-aos="fade-down">
-          <h2 className="section-title">My <span>Services</span></h2>
+      <Container>
+        <div className="section-header text-center" data-aos="fade-down">
+          <span className="section-badge">Client & Business Offerings</span>
+          <h2 className="section-title mt-2">
+            My Specialized <span className="gradient-text">Services</span>
+          </h2>
           <p className="section-subtitle">
-            Solutions crafted to elevate your digital presence
+            End-to-end technical solutions designed to scale your business and engage users
           </p>
-          <div className="divider"></div>
+          <div className="divider mx-auto"></div>
         </div>
 
         <div className="services-grid">
@@ -87,24 +93,34 @@ const Services = () => {
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 100}
+              data-cursor="Service"
               style={{ '--accent-color': service.color }}
             >
+              <div className="card-badge-tag" style={{ borderColor: service.color, color: service.color }}>
+                {service.badge}
+              </div>
               <div className="card-inner">
-                <div className="card-icon">
+                <div className="card-icon-box" style={{ background: `${service.color}15`, color: service.color, borderColor: `${service.color}40` }}>
                   <i className={service.icon}></i>
                 </div>
-                <h3 className="card-title" style={{color : service.color}}>{service.title}</h3>
+                <h3 className="card-title" style={{ color: "#ffffff" }}>{service.title}</h3>
                 <p className="card-desc">{service.desc}</p>
-                <div className="card-hover-content">
-                  <button className="service-btn">
-                    Learn More <i className="bi bi-arrow-right"></i>
-                  </button>
-                </div>
+                
+                <a
+                  href="https://wa.me/923023466105?text=Hi Qadeer, I'm interested in your service: " 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="service-action-btn text-decoration-none"
+                  style={{ color: service.color }}
+                >
+                  Discuss Service <i className="bi bi-arrow-right ms-2"></i>
+                </a>
               </div>
+              <div className="service-card-glow" style={{ background: `radial-gradient(circle at center, ${service.color}25 0%, transparent 70%)` }}></div>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
