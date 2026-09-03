@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../assets/css/Home.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,12 +26,19 @@ const Home = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [bubbles, setBubbles] = useState([]);
+  const videoRef = useRef(null);
   const typingSpeed = 90;
   const deletingSpeed = 45;
   const delayBeforeDeleting = 1200;
 
   useEffect(() => {
     AOS.init({ duration: 1000, easing: 'ease-out-quad', once: true });
+
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.log("Autoplay playback:", err);
+      });
+    }
 
     // Create floating tech particle nodes
     const bubbleArray = Array.from({ length: 18 }, (_, i) => ({
@@ -159,7 +166,7 @@ const Home = () => {
             </div>
           </section>
 
-          {/* Profile Image with Orbiting Tech Badges */}
+          {/* Profile Image / Video with Orbiting Tech Badges */}
           <div className="image-section" data-aos="fade-left">
             <div className="profile-frame">
               <div className="orbit-ring">
@@ -168,7 +175,22 @@ const Home = () => {
                 <div className="orbit-badge b3">iOS & Android</div>
                 <div className="orbit-badge b4">AI / Stripe</div>
               </div>
-              <img src={`${process.env.PUBLIC_URL}/Qadeer.png`} alt="Qadeer Suleman" className="profile-pic" />
+              <video
+                ref={videoRef}
+                src={`${process.env.PUBLIC_URL}/Walking%20style.mp4`}
+                autoPlay
+                muted
+                playsInline
+                controls={false}
+                className="profile-pic profile-video"
+                data-cursor="Click to Replay"
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.currentTime = 0;
+                    videoRef.current.play();
+                  }
+                }}
+              />
               <div className="profile-glow"></div>
             </div>
           </div>

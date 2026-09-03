@@ -98,7 +98,7 @@ const About = () => {
             <div className="about-profile-card">
               <div className="about-image-wrapper">
                 <img
-                  src={`${process.env.PUBLIC_URL}/Qadeer.png`}
+                  src={`${process.env.PUBLIC_URL}/Myimage.jpeg`}
                   alt="Qadeer Suleman"
                   className="about-profile-img"
                 />
