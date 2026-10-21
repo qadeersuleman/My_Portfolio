@@ -229,71 +229,264 @@
   justify-content: center;
 }
 
-.profile-frame {
+/* Hero Status Pill */
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  padding: 0.45rem 1.15rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+  backdrop-filter: blur(8px);
+  flex-wrap: wrap;
+}
+
+.status-live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseDot 1.6s infinite;
+}
+
+.status-divider {
+  opacity: 0.35;
+  color: var(--text-muted);
+}
+
+.status-time {
+  color: var(--accent-primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.status-badge-fast {
+  background: rgba(0, 225, 255, 0.12);
+  color: var(--accent-primary);
+  border: 1px solid rgba(0, 225, 255, 0.25);
+  padding: 0.15rem 0.55rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Hero IDE Window */
+.hero-ide-section {
   position: relative;
-  width: min(360px, 85vw);
-  height: min(360px, 85vw);
+  width: 100%;
+  max-width: 550px;
   margin: 0 auto;
 }
 
-.profile-pic {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 50%;
-  border: 4px solid var(--accent-primary);
+.hero-ide-wrapper {
+  position: relative;
+  padding: 1.5rem 0.5rem;
+}
+
+.hero-ide-window {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px var(--accent-glow-subtle);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   z-index: 2;
-  box-shadow: 0 0 35px var(--accent-glow);
-  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.4s ease;
-  background-color: var(--bg-secondary);
 }
 
-.profile-video {
-  cursor: pointer;
+.hero-ide-window:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 50px var(--accent-glow);
 }
 
-.profile-frame:hover .profile-pic {
-  transform: scale(1.03);
-  box-shadow: 0 0 45px var(--accent-glow);
+.ide-top-bar {
+  background: rgba(15, 23, 42, 0.85);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.orbit-ring {
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  border: 2px dashed var(--border-color);
+.ide-window-controls .dot {
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  animation: spinOrbit 25s linear infinite;
-  z-index: 3;
-  pointer-events: none;
+  display: inline-block;
 }
 
-@keyframes spinOrbit {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.dot-close { background: #ff5f56; }
+.dot-minimize { background: #ffbd2e; }
+.dot-maximize { background: #27c93f; }
+
+.ide-window-title {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
 }
 
-.orbit-badge {
+.ide-copy-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.ide-copy-btn:hover {
+  background: var(--accent-primary);
+  color: #0f172a;
+  border-color: var(--accent-primary);
+}
+
+.ide-tabs-bar {
+  background: rgba(10, 15, 30, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow-x: auto;
+}
+
+.ide-tab-btn {
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: 'Fira Code', monospace;
+}
+
+.ide-tab-btn.active {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent-primary);
+  border-top: 2px solid var(--accent-primary);
+}
+
+.ide-code-container {
+  padding: 1.2rem 1.4rem;
+  background: rgba(6, 10, 20, 0.95);
+  min-height: 275px;
+  position: relative;
+  overflow-x: auto;
+}
+
+.code-badge-pill {
   position: absolute;
-  background: var(--bg-secondary);
+  top: 12px;
+  right: 15px;
+  font-size: 0.68rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(0, 225, 255, 0.1);
+  border: 1px solid rgba(0, 225, 255, 0.25);
+  color: var(--accent-primary);
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.code-pre {
+  margin: 0;
+  font-family: 'Fira Code', Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.code-line {
+  display: flex;
+  gap: 1rem;
+}
+
+.line-num {
+  width: 20px;
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+  text-align: right;
+  font-size: 0.72rem;
+}
+
+.code-comment { color: #64748b; font-style: italic; }
+.code-keyword { color: #c084fc; font-weight: 600; }
+.code-func { color: #38bdf8; font-weight: 600; }
+.code-string { color: #34d399; }
+.code-plain { color: #e2e8f0; }
+
+.ide-bottom-bar {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.6rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.72rem;
+}
+
+.cluster-health-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 1.8s infinite;
+}
+
+.cluster-label {
+  color: #94a3b8;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+}
+
+.metric-chip {
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+.metric-chip.live {
+  color: #10b981;
+  font-weight: 700;
+}
+
+/* Floating Orbit Tech Pills */
+.orbit-pill {
+  position: absolute;
+  background: var(--bg-card);
   border: 1px solid var(--accent-primary);
   color: var(--accent-primary);
-  padding: 0.3rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  font-size: 0.72rem;
   font-weight: 700;
-  box-shadow: 0 4px 15px var(--accent-glow-subtle);
+  box-shadow: 0 8px 25px var(--accent-glow-subtle);
+  z-index: 4;
+  backdrop-filter: blur(8px);
+  animation: floatBadge 4s ease-in-out infinite;
   white-space: nowrap;
 }
 
-.orbit-badge.b1 { top: 0; left: 50%; transform: translateX(-50%); }
-.orbit-badge.b2 { right: -10px; top: 50%; transform: translateY(-50%); }
-.orbit-badge.b3 { bottom: 0; left: 50%; transform: translateX(-50%); }
-.orbit-badge.b4 { left: -10px; top: 50%; transform: translateY(-50%); }
+.op1 { top: 0px; left: -10px; animation-delay: 0s; }
+.op2 { top: -15px; right: 20px; animation-delay: 1.2s; }
+.op3 { bottom: 20px; right: -20px; animation-delay: 2.1s; }
+.op4 { bottom: -15px; left: 40px; animation-delay: 0.8s; }
+.op5 { top: 50%; left: -30px; animation-delay: 1.7s; }
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 991px) {
+  .hero-ide-section {
+    margin-top: 3rem;
+  }
+  .orbit-pill {
+    display: none;
+  }
+}
 
 /* Recruiter Stats Row */
 .hero-stats-row {

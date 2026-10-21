@@ -11,6 +11,9 @@ const CustomCursor = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
+      // Update global CSS variables for ambient background spotlight
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
     };
 
     const handleMouseDown = () => setIsClicked(true);
@@ -45,13 +48,72 @@ const CustomCursor = () => {
     return () => cancelAnimationFrame(animationFrameId);
   }, [position]);
 
+  // Dynamic 3D Card Tilt & Magnetic Button Physics
   useEffect(() => {
-    const handleElementHover = () => {
+    const attachInteractiveEffects = () => {
+      // 1. 3D Tilt Effect on Cards
+      const tiltCards = document.querySelectorAll(
+        ".portfolio-card, .service-card, .testimonial-card, .hero-ide-window, .stat-card, .about-profile-card"
+      );
+
+      tiltCards.forEach((card) => {
+        if (card.dataset.tiltAttached) return;
+        card.dataset.tiltAttached = "true";
+
+        const onCardMove = (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -5.5;
+          const rotateY = ((x - centerX) / centerX) * 5.5;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        };
+
+        const onCardLeave = () => {
+          card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
+        };
+
+        card.style.transition = "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease";
+        card.addEventListener("mousemove", onCardMove);
+        card.addEventListener("mouseleave", onCardLeave);
+      });
+
+      // 2. Magnetic Buttons
+      const magneticButtons = document.querySelectorAll(
+        ".primary-btn, .secondary-btn, .nav-download-cv-btn, .terminal-toggle-btn"
+      );
+
+      magneticButtons.forEach((btn) => {
+        if (btn.dataset.magneticAttached) return;
+        btn.dataset.magneticAttached = "true";
+
+        const onBtnMove = (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = (e.clientX - (rect.left + rect.width / 2)) * 0.28;
+          const y = (e.clientY - (rect.top + rect.height / 2)) * 0.28;
+          btn.style.transform = `translate(${x}px, ${y}px)`;
+        };
+
+        const onBtnLeave = () => {
+          btn.style.transform = "translate(0px, 0px)";
+        };
+
+        btn.style.transition = "transform 0.2s ease-out, box-shadow 0.2s ease";
+        btn.addEventListener("mousemove", onBtnMove);
+        btn.addEventListener("mouseleave", onBtnLeave);
+      });
+
+      // 3. Hover labels for cursor
       const interactiveElements = document.querySelectorAll(
-        "a, button, .project-card-wrapper, .service-card, .social-icon, .certificate-wrapper, .tech-icon-wrapper, .nav-link, .timeline-card"
+        "a, button, .portfolio-card, .service-card, .social-icon, .cert-card, .tech-grid-card, .nav-link, .timeline-card"
       );
 
       interactiveElements.forEach((el) => {
+        if (el.dataset.cursorAttached) return;
+        el.dataset.cursorAttached = "true";
+
         el.addEventListener("mouseenter", () => {
           setIsHovered(true);
           const cursorText = el.getAttribute("data-cursor") || "";
@@ -64,8 +126,8 @@ const CustomCursor = () => {
       });
     };
 
-    handleElementHover();
-    const observer = new MutationObserver(handleElementHover);
+    attachInteractiveEffects();
+    const observer = new MutationObserver(attachInteractiveEffects);
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => observer.disconnect();

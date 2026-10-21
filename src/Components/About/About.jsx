@@ -176,6 +176,40 @@ const About = () => {
           </Col>
         </Row>
 
+        {/* Architecture & Engineering Quality Radar Strip */}
+        <div className="devops-metrics-strip mt-5 mb-4" data-aos="fade-up">
+          <Row className="g-3">
+            <Col lg={3} sm={6}>
+              <div className="metric-box">
+                <span className="metric-tag">Cloud Infrastructure</span>
+                <div className="metric-val">Azure AKS</div>
+                <p className="metric-desc">Kubernetes Multi-Node Clusters & Zero-Downtime Releases</p>
+              </div>
+            </Col>
+            <Col lg={3} sm={6}>
+              <div className="metric-box">
+                <span className="metric-tag">CI/CD Automation</span>
+                <div className="metric-val">100% Automated</div>
+                <p className="metric-desc">GitHub Actions & Azure DevOps Continuous Delivery</p>
+              </div>
+            </Col>
+            <Col lg={3} sm={6}>
+              <div className="metric-box">
+                <span className="metric-tag">Database Resilience</span>
+                <div className="metric-val">Postgres & Supabase</div>
+                <p className="metric-desc">Row-Level Security, pgvector embeddings & MySQL</p>
+              </div>
+            </Col>
+            <Col lg={3} sm={6}>
+              <div className="metric-box">
+                <span className="metric-tag">Academic Excellence</span>
+                <div className="metric-val">3.80 / 4.0 CGPA</div>
+                <p className="metric-desc">BSCS Honors Graduate with Top Academic Distinction</p>
+              </div>
+            </Col>
+          </Row>
+        </div>
+
         {/* Interactive Skill Matrix Tabs */}
         <div className="skills-matrix-wrapper mt-5" ref={skillSectionRef} data-aos="fade-up">
           <h3 className="text-center mb-4 text-white font-weight-bold">

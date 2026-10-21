@@ -32,14 +32,22 @@ const ContactUs = () => {
   });
 
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const primaryEmail = "qadeersaleman@gmail.com";
+  const primaryPhone = "+92 302 3466105";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(primaryEmail);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText("+923023466105");
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2500);
   };
 
   const handleChange = (e) => {
@@ -179,14 +187,24 @@ const ContactUs = () => {
               </div>
 
               {/* Phone Item */}
-              <div className="info-item d-flex align-items-center gap-3">
-                <div className="info-icon">
-                  <FontAwesomeIcon icon={faPhone} />
+              <div className="info-item d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center gap-3">
+                  <div className="info-icon">
+                    <FontAwesomeIcon icon={faPhone} />
+                  </div>
+                  <div className="info-content">
+                    <h4>Direct Phone / Call</h4>
+                    <a href="tel:+923023466105">{primaryPhone}</a>
+                  </div>
                 </div>
-                <div className="info-content">
-                  <h4>Phone / Phone Call</h4>
-                  <a href="tel:+923023466105">+92 302 3466105</a>
-                </div>
+                <button
+                  className="copy-btn"
+                  onClick={handleCopyPhone}
+                  title="Copy Phone to Clipboard"
+                >
+                  <FontAwesomeIcon icon={copiedPhone ? faCheck : faCopy} />
+                  {copiedPhone && <span className="copy-tooltip">Copied!</span>}
+                </button>
               </div>
 
               {/* WhatsApp Quick Action */}

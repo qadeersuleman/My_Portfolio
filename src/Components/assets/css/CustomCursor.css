@@ -1,4 +1,14 @@
 /* Custom Cursor Styles */
+.portfolio-app-root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(550px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), var(--accent-glow-subtle), transparent 75%);
+  pointer-events: none;
+  z-index: 99990;
+  opacity: 0.7;
+}
+
 .custom-cursor-dot {
   position: fixed;
   width: 8px;

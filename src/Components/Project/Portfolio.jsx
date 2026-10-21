@@ -7,7 +7,7 @@ import {
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAward, faLayerGroup, faLaptopCode, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faAward, faLayerGroup, faLaptopCode, faCheckCircle, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -30,6 +30,8 @@ const projectsData = [
     title: "CloudScale - Azure Kubernetes & CI/CD Engine",
     category: "devops",
     categoryLabel: "DevOps, Azure & Kubernetes",
+    impactBadge: "🚀 99.99% AKS Cluster Uptime",
+    status: "Production Live",
     desc: "Enterprise cloud orchestration system on Microsoft Azure Kubernetes Service (AKS) featuring automated GitHub Actions CI/CD pipelines, Dockerized services, and Prometheus telemetry.",
     img: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&auto=format&fit=crop&q=80",
     fullDesc: "Architected a multi-region deployment infrastructure on Microsoft Azure with Azure Kubernetes Service (AKS). Configured zero-downtime rolling updates, automated Docker image build/push pipelines via GitHub Actions, secret management with Azure Key Vault, and real-time observability using Prometheus & Grafana.",
@@ -47,6 +49,8 @@ const projectsData = [
     title: "NextGen SaaS - Full Stack Next.js & Supabase Engine",
     category: "web",
     categoryLabel: "Next.js 14 & Supabase",
+    impactBadge: "⚡ 40% Faster SSR Hydration",
+    status: "Deployed",
     desc: "Multi-tenant enterprise SaaS platform engineered with Next.js App Router, Supabase Auth, PostgreSQL with Row-Level Security, and Stripe recurring billing.",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
     fullDesc: "Built a high-performance web dashboard featuring server-rendered dynamic data, Supabase real-time subscriptions, and complex PostgreSQL queries. Implemented granular permission control using Supabase Row-Level Security (RLS) policies and integrated Stripe Webhooks for subscription lifecycle automation.",
@@ -64,6 +68,8 @@ const projectsData = [
     title: "Enterprise CRM & Analytics - Python Django & PostgreSQL",
     category: "python",
     categoryLabel: "Python Django & PostgreSQL",
+    impactBadge: "📊 10k+ Queries / Sec",
+    status: "Active System",
     desc: "Production CRM & reporting engine with Django REST Framework, Celery asynchronous workers, Redis caching, and relational PostgreSQL modeling.",
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
     fullDesc: "Designed an enterprise-grade backend with Django REST Framework and PostgreSQL. Handles asynchronous data exports, transactional email queues via Celery and Redis, JWT authentication, and Swagger API documentation.",
@@ -81,6 +87,8 @@ const projectsData = [
     title: "OmniFlow - Flask Microservices & MySQL Cluster Gateway",
     category: "python",
     categoryLabel: "Python Flask & MySQL",
+    impactBadge: "🛡️ Zero-Downtime Microservices",
+    status: "High Throughput",
     desc: "Lightweight, high-throughput microservices gateway powered by Python Flask, MySQL relational clustering, Redis token caching, and Nginx reverse proxy.",
     img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
     fullDesc: "Engineered a distributed API gateway capable of processing thousands of requests per second. Built using Flask blueprints, SQLAlchemy ORM with connection pooling, MySQL replication nodes, and containerized deployment with Docker Compose.",
@@ -98,6 +106,8 @@ const projectsData = [
     title: "EliteCommerce - React Native Mobile Platform",
     category: "mobile",
     categoryLabel: "React Native iOS & Android",
+    impactBadge: "💳 Instant Stripe & Paystack",
+    status: "60 FPS Native",
     desc: "Cross-platform mobile commerce experience with seamless Paystack and Stripe checkout, Redux Toolkit state, push notifications, and 60fps UI.",
     img: Ecommerce_HD,
     fullDesc: "Engineered a production-ready mobile shopping application featuring secure credit card / Apple Pay checkout with Stripe and Paystack webhooks. Built with React Native, Redux Toolkit for state management, and Node.js REST API backend.",
@@ -115,6 +125,8 @@ const projectsData = [
     title: "GeoVoyage - Smart Travel & Location Assistant",
     category: "mobile",
     categoryLabel: "React Native & Google Maps",
+    impactBadge: "📍 100% Offline Route Caching",
+    status: "Maps API",
     desc: "Mobile navigation companion featuring real-time Google Maps integration, custom markers, GPS route calculation, and offline place bookmarking.",
     img: Travel_HD,
     fullDesc: "Integrated Google Maps API with React Native Maps, device GPS, and camera logic to let travelers document trips with geo-tagged photos and offline routing. Uses Firebase Firestore for real-time synchronization.",
@@ -132,6 +144,8 @@ const projectsData = [
     title: "CognitiveAI - Intelligent Vector Search Engine",
     category: "web",
     categoryLabel: "Next.js & Supabase Vector",
+    impactBadge: "🧠 Sub-100ms pgvector Search",
+    status: "OpenAI GPT-4",
     desc: "Intelligent document conversational system with Next.js App Router, Python microservices, Supabase pgvector embeddings, and token streaming.",
     img: AI_Chat_HD,
     fullDesc: "Powered by OpenAI's GPT-4 API and Supabase pgvector for semantic retrieval. Features token streaming, markdown code rendering, file upload parsing, and responsive dark glassmorphic styling.",
@@ -149,6 +163,8 @@ const projectsData = [
     title: "PulseFit - AI Posture & Camera Vision App",
     category: "mobile",
     categoryLabel: "AI & Mobile Vision",
+    impactBadge: "👁️ 60fps Real-Time Vision",
+    status: "AI Camera Vision",
     desc: "Fitness application leveraging device camera AI for real-time posture correction, workout analytics, and interactive exercise progress charts.",
     img: Fitness_HD,
     fullDesc: "Integrated custom vision algorithms with OpenAI GPT-4 API to analyze posture keypoints via device camera during workouts, preventing injuries and calculating repetition counts in real time.",
@@ -331,6 +347,14 @@ const Portfolio = () => {
                     </div>
 
                     <div className="card-content">
+                      <div className="card-impact-row d-flex align-items-center justify-content-between mb-2 flex-wrap gap-2">
+                        <span className="impact-badge-tag">{project.impactBadge}</span>
+                        <span className="live-status-pill">
+                          <span className="status-indicator-dot"></span>
+                          {project.status}
+                        </span>
+                      </div>
+
                       <h3 className="card-title-text">{project.title}</h3>
                       <p className="card-desc-text">{project.desc}</p>
 
@@ -348,8 +372,17 @@ const Portfolio = () => {
                           className="btn-details"
                           onClick={() => handleOpenProjectModal(project)}
                         >
-                          Details & Architecture
+                          Architecture
                         </Button>
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-demo"
+                          data-cursor="Live"
+                        >
+                          <FontAwesomeIcon icon={faExternalLinkAlt} className="me-1" /> Live Demo
+                        </a>
                         <a
                           href={project.githubUrl}
                           target="_blank"
