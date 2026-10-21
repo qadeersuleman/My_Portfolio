@@ -3,9 +3,9 @@
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid #00e1ff;
-  color: #00e1ff;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
   padding: 0.75rem 1.2rem;
   border-radius: 50px;
   font-family: 'Fira Code', monospace;
@@ -13,7 +13,7 @@
   font-weight: 700;
   cursor: pointer;
   z-index: 9995;
-  box-shadow: 0 10px 25px rgba(0, 225, 255, 0.3);
+  box-shadow: 0 10px 25px var(--accent-glow-subtle);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -21,9 +21,9 @@
 
 .terminal-toggle-btn:hover {
   transform: translateY(-3px) scale(1.05);
-  background: #00e1ff;
+  background: var(--accent-primary);
   color: #0f172a;
-  box-shadow: 0 15px 35px rgba(0, 225, 255, 0.5);
+  box-shadow: 0 15px 35px var(--accent-glow);
 }
 
 .terminal-window {
@@ -32,20 +32,20 @@
   right: 25px;
   width: min(550px, 92vw);
   height: 380px;
-  background: rgba(10, 15, 26, 0.95);
+  background: var(--bg-primary);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 225, 255, 0.3);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   z-index: 9996;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px var(--accent-glow-subtle);
   overflow: hidden;
   font-family: 'Fira Code', 'Courier New', monospace;
 }
 
 .terminal-header {
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--bg-secondary);
   padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@
 
 .terminal-title {
   font-size: 0.78rem;
-  color: rgba(226, 232, 240, 0.6);
+  color: var(--text-muted);
 }
 
 .terminal-close-btn {
@@ -97,12 +97,12 @@
 }
 
 .log-line.user-cmd {
-  color: #00e1ff;
+  color: var(--accent-primary);
   font-weight: 700;
 }
 
 .log-line.ai-cmd {
-  color: #38bdf8;
+  color: var(--accent-tertiary);
 }
 
 .log-line.notice-cmd {
@@ -112,7 +112,7 @@
 }
 
 .loading-pulse {
-  color: #a855f7;
+  color: var(--accent-secondary);
   font-style: italic;
   animation: pulse 1.5s infinite;
 }
@@ -127,15 +127,15 @@
   display: flex;
   gap: 0.4rem;
   padding: 0.4rem 0.8rem;
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-secondary);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   overflow-x: auto;
 }
 
 .terminal-pills button {
-  background: rgba(0, 225, 255, 0.1);
-  border: 1px solid rgba(0, 225, 255, 0.2);
-  color: #00e1ff;
+  background: var(--badge-bg);
+  border: 1px solid var(--border-color);
+  color: var(--accent-primary);
   font-size: 0.72rem;
   font-family: inherit;
   padding: 0.15rem 0.5rem;
@@ -145,7 +145,7 @@
 }
 
 .terminal-pills button:hover {
-  background: #00e1ff;
+  background: var(--accent-primary);
   color: #0f172a;
 }
 
@@ -153,12 +153,12 @@
   display: flex;
   align-items: center;
   padding: 0.6rem 1rem;
-  background: rgba(15, 23, 42, 0.95);
+  background: var(--bg-secondary);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .prompt-symbol {
-  color: #a855f7;
+  color: var(--accent-secondary);
   font-size: 0.82rem;
   font-weight: 700;
   margin-right: 0.5rem;
@@ -169,7 +169,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #ffffff;
+  color: var(--text-main);
   font-size: 0.82rem;
   font-family: inherit;
 }

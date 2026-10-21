@@ -4,10 +4,10 @@
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #00e1ff, #a855f7, #ec4899);
+  background: var(--gradient-hero);
   z-index: 10000;
   transition: width 0.1s ease-out;
-  box-shadow: 0 0 10px #00e1ff;
+  box-shadow: 0 0 10px var(--accent-primary);
 }
 
 .custom-navbar {
@@ -22,8 +22,8 @@
 
 .custom-navbar.scrolled {
   padding: 0.6rem 0;
-  background: rgba(15, 23, 42, 0.88);
-  border-bottom: 1px solid rgba(0, 225, 255, 0.2);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -31,23 +31,24 @@
   font-family: 'Fira Code', 'Courier New', monospace;
   font-weight: 800;
   font-size: 1.2rem;
-  color: #00e1ff;
-  background: rgba(0, 225, 255, 0.1);
-  border: 1px solid rgba(0, 225, 255, 0.3);
+  color: var(--accent-primary);
+  background: var(--badge-bg);
+  border: 1px solid var(--border-color);
   padding: 0.2rem 0.6rem;
   border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0, 225, 255, 0.2);
+  box-shadow: 0 0 12px var(--accent-glow-subtle);
+  transition: all 0.3s ease;
 }
 
 .brand-name {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
   letter-spacing: -0.5px;
 }
 
 .gradient-highlight {
-  background: linear-gradient(90deg, #00e1ff, #a855f7);
+  background: var(--gradient-secondary);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -85,7 +86,7 @@
 }
 
 .nav-links .nav-link {
-  color: rgba(255, 255, 255, 0.75) !important;
+  color: var(--text-muted) !important;
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0.5rem 1rem !important;
@@ -95,7 +96,7 @@
 
 .nav-links .nav-link:hover,
 .nav-links .nav-link.active {
-  color: #00e1ff !important;
+  color: var(--accent-primary) !important;
 }
 
 .nav-links .nav-link::after {
@@ -105,7 +106,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #00e1ff, #a855f7);
+  background: var(--gradient-secondary);
   transition: all 0.3s ease;
   transform: translateX(-50%);
   border-radius: 2px;
@@ -120,40 +121,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #00e1ff 0%, #6366f1 100%);
+  background: var(--gradient-primary);
   color: #0f172a !important;
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.55rem 1.3rem;
   border-radius: 50px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 225, 255, 0.3);
+  box-shadow: 0 4px 15px var(--accent-glow-subtle);
 }
 
 .nav-download-cv-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 225, 255, 0.5);
+  box-shadow: 0 8px 25px var(--accent-glow);
   color: #000000 !important;
 }
 
 .navbar-toggler {
-  border: 1px solid rgba(0, 225, 255, 0.3) !important;
-  background: rgba(0, 225, 255, 0.05);
+  border: 1px solid var(--border-color) !important;
+  background: var(--badge-bg);
   padding: 0.4rem 0.75rem;
 }
 
 .toggler-icon {
-  color: #00e1ff;
+  color: var(--accent-primary);
   font-size: 1.2rem;
 }
 
 @media (max-width: 991.98px) {
   .navbar-collapse {
-    background: rgba(15, 23, 42, 0.95);
+    background: var(--bg-secondary);
     backdrop-filter: blur(20px);
     padding: 1.5rem;
     border-radius: 16px;
-    border: 1px solid rgba(0, 225, 255, 0.2);
+    border: 1px solid var(--border-color);
     margin-top: 1rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   }

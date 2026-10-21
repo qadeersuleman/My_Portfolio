@@ -1,12 +1,13 @@
 /* ===== CONTACT SECTION ===== */
 .contact-section {
   padding: 6rem 0;
-  background: #090d16;
+  background: var(--bg-primary);
   position: relative;
+  transition: background 0.4s ease;
 }
 
 .contact-card-box {
-  background: rgba(30, 41, 59, 0.5);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
@@ -17,42 +18,43 @@
 .box-title {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .custom-input {
-  background: rgba(15, 23, 42, 0.7) !important;
+  background: var(--bg-primary) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  color: #ffffff !important;
+  color: var(--text-main) !important;
   border-radius: 12px !important;
   padding: 0.75rem 1rem !important;
   font-size: 0.95rem !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .custom-input:focus {
-  border-color: #00e1ff !important;
-  box-shadow: 0 0 15px rgba(0, 225, 255, 0.2) !important;
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 15px var(--accent-glow-subtle) !important;
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #00e1ff 0%, #6366f1 100%) !important;
+  background: var(--gradient-primary) !important;
   border: none !important;
   color: #0f172a !important;
   font-weight: 800 !important;
   padding: 0.85rem !important;
   border-radius: 50px !important;
   font-size: 1rem !important;
-  box-shadow: 0 10px 25px rgba(0, 225, 255, 0.3) !important;
+  box-shadow: 0 10px 25px var(--accent-glow-subtle) !important;
   transition: all 0.3s ease !important;
 }
 
 .submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(0, 225, 255, 0.5) !important;
+  box-shadow: 0 15px 35px var(--accent-glow) !important;
 }
 
 .contact-info-card {
-  background: rgba(30, 41, 59, 0.5);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
@@ -62,18 +64,18 @@
 .info-title {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 0.4rem;
 }
 
 .info-subtext {
   font-size: 0.88rem;
-  color: rgba(226, 232, 240, 0.6);
+  color: var(--text-muted);
   margin-bottom: 1.8rem;
 }
 
 .info-item {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-primary);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 1rem 1.2rem;
   border-radius: 16px;
@@ -83,7 +85,7 @@
 }
 
 .info-item:hover {
-  border-color: rgba(0, 225, 255, 0.3);
+  border-color: var(--accent-primary);
   transform: translateY(-2px);
 }
 
@@ -91,9 +93,9 @@
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(0, 225, 255, 0.1);
-  border: 1px solid rgba(0, 225, 255, 0.3);
-  color: #00e1ff;
+  background: var(--badge-bg);
+  border: 1px solid var(--border-color);
+  color: var(--accent-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +113,7 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgba(226, 232, 240, 0.6);
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -119,14 +121,14 @@
 .info-content p {
   font-size: 0.92rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-main);
   text-decoration: none;
 }
 
 .copy-btn {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #00e1ff;
+  color: var(--accent-primary);
   width: 38px;
   height: 38px;
   border-radius: 10px;
@@ -139,7 +141,7 @@
 }
 
 .copy-btn:hover {
-  background: #00e1ff;
+  background: var(--accent-primary);
   color: #0f172a;
 }
 

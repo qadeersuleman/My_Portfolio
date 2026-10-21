@@ -1,8 +1,9 @@
 /* ===== SERVICES SECTION ===== */
 .services-section {
   padding: 6rem 0;
-  background: #090d16;
+  background: var(--bg-secondary);
   position: relative;
+  transition: background 0.4s ease;
 }
 
 .services-grid {
@@ -14,7 +15,7 @@
 
 .service-card {
   position: relative;
-  background: rgba(30, 41, 59, 0.45);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
@@ -29,45 +30,52 @@
   right: 15px;
   font-size: 0.72rem;
   font-weight: 700;
-  border: 1px solid;
+  border: 1px solid var(--border-color);
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--bg-primary);
+  color: var(--accent-primary);
   text-transform: uppercase;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent-color);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 40px var(--accent-glow-subtle);
+  background: var(--bg-card-hover);
 }
 
 .card-icon-box {
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  border: 1px solid;
+  border: 1px solid var(--border-color);
+  background: var(--badge-bg);
+  color: var(--accent-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .service-card:hover .card-icon-box {
   transform: scale(1.1) rotate(5deg);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-glow-subtle);
 }
 
 .card-title {
   font-size: 1.3rem;
   font-weight: 800;
+  color: var(--text-main);
   margin-bottom: 0.8rem;
 }
 
 .card-desc {
   font-size: 0.93rem;
-  color: rgba(226, 232, 240, 0.75);
+  color: var(--text-muted);
   line-height: 1.65;
   margin-bottom: 1.5rem;
 }
@@ -77,6 +85,7 @@
   align-items: center;
   font-size: 0.9rem;
   font-weight: 700;
+  color: var(--accent-primary);
   transition: gap 0.3s ease;
 }
 
@@ -92,9 +101,10 @@
   height: 200%;
   opacity: 0;
   pointer-events: none;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
   transition: opacity 0.4s ease;
 }
 
 .service-card:hover .service-card-glow {
-  opacity: 0.3;
+  opacity: 0.25;
 }

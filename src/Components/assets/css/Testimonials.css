@@ -1,12 +1,13 @@
 /* Testimonials Section */
 .testimonials-section {
   padding: 6rem 0;
-  background: #0f172a;
+  background: var(--bg-secondary);
   position: relative;
+  transition: background 0.4s ease;
 }
 
 .testimonial-card {
-  background: rgba(30, 41, 59, 0.45);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
@@ -20,13 +21,14 @@
 
 .testimonial-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(0, 225, 255, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 225, 255, 0.12);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 40px var(--accent-glow-subtle);
+  background: var(--bg-card-hover);
 }
 
 .quote-icon {
   font-size: 2.2rem;
-  color: rgba(0, 225, 255, 0.2);
+  color: var(--border-color);
   margin-bottom: 1rem;
 }
 
@@ -38,7 +40,7 @@
 
 .testimonial-text {
   font-size: 0.95rem;
-  color: rgba(226, 232, 240, 0.85);
+  color: var(--text-muted);
   line-height: 1.65;
   font-style: italic;
   margin-bottom: 1.8rem;
@@ -50,14 +52,14 @@
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #00e1ff;
-  box-shadow: 0 0 10px rgba(0, 225, 255, 0.3);
+  border: 2px solid var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-glow-subtle);
 }
 
 .author-name {
   font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .verified-badge {
@@ -67,13 +69,13 @@
 
 .author-role {
   font-size: 0.8rem;
-  color: #a855f7;
+  color: var(--accent-secondary);
   font-weight: 600;
   display: block;
 }
 
 .author-project {
   font-size: 0.72rem;
-  color: rgba(226, 232, 240, 0.5);
+  color: var(--text-muted);
   margin-top: 0.1rem;
 }

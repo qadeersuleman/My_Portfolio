@@ -114,7 +114,7 @@ const Home = () => {
             </h2>
 
             <p className="description">
-              Passionate **Software Engineer** specializing in cross-platform mobile apps (iOS & Android) and high-throughput web applications. Expert in **React, React Native, Node.js, Express & NestJS** with deep integration of secure payment gateways (Stripe/Paystack), Google Maps, AI models, and camera pipelines.
+              Passionate <strong>Software Engineer</strong> specializing in cross-platform mobile apps (iOS & Android) and high-throughput web applications. Expert in <strong>React, React Native, Node.js, Express & NestJS</strong> with deep integration of secure payment gateways (Stripe/Paystack), Google Maps, AI models, and camera pipelines.
             </p>
 
             {/* Quick Skills Badges for recruiters */}

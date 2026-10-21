@@ -1,16 +1,17 @@
 /* ===== ABOUT SECTION ===== */
 .about-section {
   padding: 6rem 0;
-  background: #0f172a;
-  color: #ffffff;
+  background: var(--bg-secondary);
+  color: var(--text-main);
   position: relative;
+  transition: background 0.4s ease;
 }
 
 .section-badge {
   display: inline-block;
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  color: #c084fc;
+  background: var(--pill-bg);
+  border: 1px solid var(--border-color);
+  color: var(--badge-text);
   padding: 0.3rem 1rem;
   border-radius: 20px;
   font-size: 0.82rem;
@@ -22,32 +23,32 @@
 .section-title {
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #00e1ff 0%, #a855f7 100%);
+  background: var(--gradient-secondary);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .section-subtitle {
-  color: rgba(226, 232, 240, 0.7);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 
 .divider {
   width: 70px;
   height: 4px;
-  background: linear-gradient(90deg, #00e1ff, #a855f7);
+  background: var(--gradient-secondary);
   border-radius: 4px;
   margin-top: 1rem;
 }
 
 /* About Profile Card */
 .about-profile-card {
-  background: rgba(30, 41, 59, 0.5);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
@@ -79,14 +80,14 @@
   position: absolute;
   bottom: 15px;
   right: 15px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid #00e1ff;
-  color: #00e1ff;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
   padding: 0.4rem 1rem;
   border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 800;
-  box-shadow: 0 8px 20px rgba(0, 225, 255, 0.3);
+  box-shadow: 0 8px 20px var(--accent-glow-subtle);
 }
 
 /* Info Grid */
@@ -97,7 +98,7 @@
 }
 
 .info-box {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-primary);
   padding: 0.75rem 1rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -110,7 +111,7 @@
 .info-label {
   display: block;
   font-size: 0.75rem;
-  color: rgba(226, 232, 240, 0.6);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -119,7 +120,7 @@
   display: block;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-main);
   margin-top: 0.1rem;
   word-break: break-word;
 }
@@ -135,7 +136,7 @@
 .about-paragraph {
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(226, 232, 240, 0.82);
+  color: var(--text-muted);
   margin-bottom: 1.2rem;
 }
 
@@ -150,24 +151,24 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(30, 41, 59, 0.4);
-  border: 1px solid rgba(0, 225, 255, 0.15);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   padding: 0.85rem 1rem;
   border-radius: 14px;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #e2e8f0;
+  color: var(--text-main);
 }
 
 .highlight-icon {
-  color: #00e1ff;
+  color: var(--accent-primary);
   font-size: 1.1rem;
   flex-shrink: 0;
 }
 
 /* Skills Matrix Tabs */
 .skills-matrix-wrapper {
-  background: rgba(30, 41, 59, 0.4);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
@@ -180,9 +181,9 @@
 }
 
 .skill-tab-link {
-  background: rgba(15, 23, 42, 0.6) !important;
+  background: var(--bg-primary) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--text-muted) !important;
   border-radius: 30px !important;
   padding: 0.6rem 1.4rem !important;
   font-weight: 700 !important;
@@ -192,14 +193,14 @@
 
 .skill-tab-link.active,
 .skill-tab-link:hover {
-  background: linear-gradient(135deg, #00e1ff 0%, #6366f1 100%) !important;
+  background: var(--gradient-primary) !important;
   color: #0f172a !important;
   border-color: transparent !important;
-  box-shadow: 0 8px 20px rgba(0, 225, 255, 0.3);
+  box-shadow: 0 8px 20px var(--accent-glow-subtle);
 }
 
 .skill-bar-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-primary);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 1rem 1.2rem;
   border-radius: 16px;
@@ -207,20 +208,20 @@
 }
 
 .skill-bar-card:hover {
-  border-color: rgba(0, 225, 255, 0.3);
+  border-color: var(--accent-primary);
   transform: translateY(-2px);
 }
 
 .skill-name {
   font-size: 0.92rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .skill-percentage {
   font-size: 0.85rem;
   font-weight: 800;
-  color: #00e1ff;
+  color: var(--accent-primary);
   font-family: 'Fira Code', monospace;
 }
 
@@ -233,10 +234,10 @@
 
 .skill-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #00e1ff 0%, #a855f7 100%);
+  background: var(--gradient-secondary);
   border-radius: 10px;
   transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 0 10px #00e1ff;
+  box-shadow: 0 0 10px var(--accent-primary);
 }
 
 @media (max-width: 768px) {
