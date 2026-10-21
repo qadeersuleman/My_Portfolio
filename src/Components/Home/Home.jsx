@@ -14,11 +14,11 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const roles = [
-  "React Native Developer (iOS & Android)",
-  "Full Stack Web & Mobile Specialist",
-  "Paystack & Stripe Payment Integrator",
-  "NestJS & Node.js API Architect",
-  "AI & Camera Logic Innovator",
+  "Full Stack Web & Mobile Developer",
+  "DevOps Engineer (Docker, K8s, Azure, CI/CD)",
+  "Python Backend Architect (Django & Flask)",
+  "React & Next.js Specialist",
+  "Database & API Architect (Supabase, Postgres, MySQL)",
 ];
 
 const Home = () => {
@@ -99,13 +99,8 @@ const Home = () => {
         <div className="home-content">
           {/* Text Section */}
           <section className="text-section" data-aos="fade-right">
-            <div className="hero-badge">
-              <span className="badge-dot"></span>
-              <span>Available for Full-time Roles & Contracts</span>
-            </div>
-
             <h1 className="greeting">
-              Hi, I'm <span className="highlight">Qadeer Suleman</span>
+              Hi, I'm <span className="highlight">Abdul Qadeer</span>
             </h1>
 
             <h2 className="role">
@@ -114,15 +109,17 @@ const Home = () => {
             </h2>
 
             <p className="description">
-              Passionate <strong>Software Engineer</strong> specializing in cross-platform mobile apps (iOS & Android) and high-throughput web applications. Expert in <strong>React, React Native, Node.js, Express & NestJS</strong> with deep integration of secure payment gateways (Stripe/Paystack), Google Maps, AI models, and camera pipelines.
+              Passionate <strong>Full Stack Web & Mobile Developer</strong> and <strong>DevOps Engineer</strong> building scalable, resilient, and high-performance digital products. Experienced across modern frontend frameworks like <strong>React & Next.js</strong>, mobile apps with <strong>React Native</strong>, robust backend architectures in <strong>Python (Django & Flask)</strong>, and automated cloud deployments with <strong>Docker, Kubernetes, CI/CD pipelines, and Microsoft Azure</strong>.
             </p>
 
             {/* Quick Skills Badges for recruiters */}
             <div className="hero-skills-pills">
+              <span className="skill-pill">React & Next.js</span>
+              <span className="skill-pill">Python, Django & Flask</span>
+              <span className="skill-pill">Supabase, Postgres & MySQL</span>
+              <span className="skill-pill">Docker & Kubernetes</span>
+              <span className="skill-pill">Microsoft Azure & CI/CD</span>
               <span className="skill-pill">React Native (iOS/Android)</span>
-              <span className="skill-pill">Node / NestJS</span>
-              <span className="skill-pill">MongoDB & Postgres</span>
-              <span className="skill-pill">Paystack & Stripe</span>
             </div>
 
             {/* Social Links */}
@@ -133,7 +130,7 @@ const Home = () => {
               <a href="https://github.com/qadeersuleman/" target="_blank" rel="noopener noreferrer" className="social-icon" data-cursor="GitHub">
                 <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://wa.me/923023466105?text=Hi Qadeer, I'm interested in hiring you for a project!" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp" data-cursor="WhatsApp">
+              <a href="https://wa.me/923023466105?text=Hi Abdul Qadeer, I'm interested in discussing a project!" target="_blank" rel="noopener noreferrer" className="social-icon whatsapp" data-cursor="WhatsApp">
                 <FontAwesomeIcon icon={faWhatsapp} />
               </a>
               <a href="https://www.instagram.com/qadeer_sulemann/" target="_blank" rel="noopener noreferrer" className="social-icon" data-cursor="Instagram">
@@ -148,14 +145,14 @@ const Home = () => {
             <div className="action-buttons">
               <a
                 href={`${process.env.PUBLIC_URL}/Qadeer-Resume.pdf`}
-                download="Qadeer_Suleman_CV.pdf"
+                download="Abdul_Qadeer_Resume.pdf"
                 className="primary-btn pulse text-decoration-none"
                 data-cursor="Download"
               >
                 <FontAwesomeIcon icon={faDownload} className="me-2" /> Download Resume
               </a>
               <a
-                href="https://wa.me/923023466105?text=Hi Qadeer, I saw your portfolio and would like to discuss an opportunity!"
+                href="https://wa.me/923023466105?text=Hi Abdul Qadeer, I saw your portfolio and would like to discuss a project or role!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="secondary-btn text-decoration-none"
@@ -170,10 +167,10 @@ const Home = () => {
           <div className="image-section" data-aos="fade-left">
             <div className="profile-frame">
               <div className="orbit-ring">
-                <div className="orbit-badge b1">React Native</div>
-                <div className="orbit-badge b2">NestJS</div>
-                <div className="orbit-badge b3">iOS & Android</div>
-                <div className="orbit-badge b4">AI / Stripe</div>
+                <div className="orbit-badge b1">React & Next</div>
+                <div className="orbit-badge b2">Python & Django</div>
+                <div className="orbit-badge b3">Docker & K8s</div>
+                <div className="orbit-badge b4">Azure & Cloud</div>
               </div>
               <video
                 ref={videoRef}
@@ -216,7 +213,7 @@ const Home = () => {
             <div className="stat-card">
               <div className="stat-icon"><FontAwesomeIcon icon={faCode} /></div>
               <div className="stat-number">3+ Yrs</div>
-              <div className="stat-label">Full Stack & Mobile</div>
+              <div className="stat-label">Full Stack & DevOps</div>
             </div>
           </Col>
           <Col md={3} sm={6} xs={6}>

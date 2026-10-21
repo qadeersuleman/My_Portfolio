@@ -3,7 +3,7 @@ import "./assets/css/Splash.css";
 
 const SplashScreen = ({ onFinish }) => {
   const [animationStage, setAnimationStage] = useState(0);
-  const name = "QADEER SULEMAN";
+  const name = "ABDUL QADEER";
 
   useEffect(() => {
     const animationSequence = [
@@ -51,11 +51,11 @@ const SplashScreen = ({ onFinish }) => {
 
       {/* Main Content */}
       <div className="splash-content">
-        {/* Animated QS Logo */}
+        {/* Animated AQ Logo */}
         <div className={`logo-container ${animationStage >= 2 ? "active" : ""}`}>
           <div className="logo-outer">
             <div className="logo-inner">
-              <div className="logo-text">QS</div>
+              <div className="logo-text">AQ</div>
             </div>
           </div>
         </div>

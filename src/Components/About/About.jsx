@@ -1,62 +1,62 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Container, Row, Col, Nav, Tab } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGraduationCap, faCheckCircle, faMapMarkerAlt, faCode, faServer, faDatabase, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faGraduationCap, faCheckCircle, faMapMarkerAlt, faServer, faDatabase, faCloud, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../assets/css/about.css";
 
 const skillCategories = [
   {
-    key: "mobile",
-    title: "Mobile & Frontend",
-    icon: faMobileAlt,
+    key: "frontend",
+    title: "Frontend & Mobile",
+    icon: faGlobe,
     skills: [
-      { name: "React Native (iOS & Android)", level: 95 },
-      { name: "React.js / Next.js", level: 92 },
-      { name: "Redux Toolkit & State Mgt", level: 88 },
-      { name: "HTML5 / CSS3 / JavaScript ES6+", level: 95 },
-      { name: "Bootstrap / Tailwind CSS", level: 90 },
+      { name: "React.js & Next.js", level: 95 },
+      { name: "React Native (iOS & Android)", level: 92 },
+      { name: "JavaScript ES6+ & TypeScript", level: 90 },
+      { name: "Tailwind CSS & Bootstrap", level: 94 },
+      { name: "Redux Toolkit & State Management", level: 88 },
     ],
   },
   {
     key: "backend",
-    title: "Backend & APIs",
+    title: "Python, Backend & APIs",
     icon: faServer,
     skills: [
-      { name: "Node.js & Express", level: 88 },
-      { name: "NestJS Architecture", level: 85 },
-      { name: "RESTful API Design & Webhooks", level: 90 },
-      { name: "Firebase Auth & Firestore", level: 88 },
+      { name: "Python (Django & Flask)", level: 92 },
+      { name: "RESTful & GraphQL API Architecture", level: 94 },
+      { name: "Node.js & Express / NestJS", level: 88 },
+      { name: "Authentication, JWT & Security", level: 90 },
     ],
   },
   {
     key: "database",
-    title: "Databases & Payments",
+    title: "Databases & Storage",
     icon: faDatabase,
     skills: [
-      { name: "MongoDB & Mongoose", level: 86 },
-      { name: "PostgreSQL & SQL", level: 82 },
-      { name: "Paystack Payment Integration", level: 90 },
-      { name: "Stripe Payment Gateway", level: 88 },
+      { name: "PostgreSQL & Supabase", level: 92 },
+      { name: "MySQL & Relational Modeling", level: 90 },
+      { name: "MongoDB & NoSQL Stores", level: 86 },
+      { name: "Redis Caching & Data Queues", level: 84 },
     ],
   },
   {
-    key: "specialized",
-    title: "AI, Maps & Media",
-    icon: faCode,
+    key: "devops",
+    title: "DevOps, Azure & Cloud",
+    icon: faCloud,
     skills: [
-      { name: "Google Maps & Geolocation", level: 92 },
-      { name: "Camera & Vision Logic", level: 88 },
-      { name: "OpenAI GPT-4 API Integration", level: 85 },
-      { name: "Git, GitHub & Deployment (Vercel/Heroku)", level: 90 },
+      { name: "Docker & Containerization", level: 92 },
+      { name: "Kubernetes (K8s) Orchestration", level: 85 },
+      { name: "Microsoft Azure Cloud Services", level: 88 },
+      { name: "CI/CD Pipelines (GitHub Actions / GitLab)", level: 90 },
     ],
   },
 ];
 
 const About = () => {
   const [animateSkills, setAnimateSkills] = useState(false);
-  const [activeTab, setActiveTab] = useState("mobile");
+  const [activeTab, setActiveTab] = useState("frontend");
   const skillSectionRef = useRef(null);
 
   useEffect(() => {
@@ -84,10 +84,10 @@ const About = () => {
         <div className="section-header text-center" data-aos="fade-down">
           <span className="section-badge">Behind The Code</span>
           <h2 className="section-title mt-2">
-            About <span className="gradient-text">Qadeer Suleman</span>
+            About <span className="gradient-text">Abdul Qadeer</span>
           </h2>
           <p className="section-subtitle">
-            BSCS Graduate (3.80/4.0 CGPA) & Full Stack Mobile Engineering Specialist
+            BSCS Honors Graduate (3.80/4.0 CGPA) | Full Stack Web & Mobile Developer | DevOps Engineer
           </p>
           <div className="divider mx-auto"></div>
         </div>
@@ -99,7 +99,7 @@ const About = () => {
               <div className="about-image-wrapper">
                 <img
                   src={`${process.env.PUBLIC_URL}/Myimage.jpeg`}
-                  alt="Qadeer Suleman"
+                  alt="Abdul Qadeer"
                   className="about-profile-img"
                 />
                 <div className="cgpa-floating-tag">
@@ -111,7 +111,7 @@ const About = () => {
               <div className="about-info-grid">
                 <div className="info-box">
                   <span className="info-label">Full Name</span>
-                  <span className="info-value">Qadeer Suleman</span>
+                  <span className="info-value">Abdul Qadeer</span>
                 </div>
                 <div className="info-box">
                   <span className="info-label">Education</span>
@@ -139,33 +139,37 @@ const About = () => {
           <Col lg={7} data-aos="fade-left">
             <div className="about-content">
               <h3 className="about-heading">
-                Engineering <span className="gradient-text">High-Performance</span> Digital Products
+                Engineering <span className="gradient-text">High-Performance</span> Web, Mobile & Cloud Systems
               </h3>
 
               <p className="about-paragraph">
-                I earned my <strong>BS in Computer Science</strong> from <em>Shah Abdul Latif University</em> with an honor CGPA of <strong>3.80 / 4.0</strong>. Over the past 3+ years, I have specialized in architecting and delivering cross-platform mobile apps for iOS & Android using React Native alongside scalable backend APIs with Node.js, Express, and NestJS.
+                I earned my <strong>BS in Computer Science</strong> from <em>Shah Abdul Latif University</em> with honors (CGPA of <strong>3.80 / 4.0</strong>). As a versatile <strong>Full Stack Web & Mobile Developer</strong> and <strong>DevOps Engineer</strong>, I engineer robust digital products from intuitive user interfaces to highly available cloud deployments.
               </p>
 
               <p className="about-paragraph">
-                Having successfully engineered over <strong>50+ real-world projects</strong>, my expertise extends to complex third-party integrations including <strong>Paystack & Stripe payments</strong>, live Google Maps tracking, camera AI pipelines, and Firebase cloud services.
+                With a track record of delivering <strong>50+ scalable applications</strong>, my stack encompasses modern frontend systems with <strong>React & Next.js</strong>, cross-platform mobile apps with <strong>React Native</strong>, enterprise backend architectures in <strong>Python (Django & Flask)</strong>, and relational databases with <strong>PostgreSQL, MySQL, and Supabase</strong>.
+              </p>
+
+              <p className="about-paragraph">
+                On the cloud and infrastructure front, I specialize in containerization and CI/CD pipelines using <strong>Docker, Kubernetes, GitHub Actions, and Microsoft Azure</strong> to achieve automated testing, zero-downtime rollouts, and resilient cloud monitoring.
               </p>
 
               <div className="key-highlights-grid">
                 <div className="highlight-item">
                   <FontAwesomeIcon icon={faCheckCircle} className="highlight-icon" />
-                  <span>50+ Successful Mobile & Web Deployments</span>
+                  <span>50+ Full Stack Web, Mobile & Cloud Deployments</span>
                 </div>
                 <div className="highlight-item">
                   <FontAwesomeIcon icon={faCheckCircle} className="highlight-icon" />
-                  <span>Stripe & Paystack In-App Purchase Flows</span>
+                  <span>Docker, Kubernetes & Microsoft Azure Cloud Automation</span>
                 </div>
                 <div className="highlight-item">
                   <FontAwesomeIcon icon={faCheckCircle} className="highlight-icon" />
-                  <span>Clean Architecture & Performant State Management</span>
+                  <span>Python (Django & Flask) & Scalable REST/GraphQL APIs</span>
                 </div>
                 <div className="highlight-item">
                   <FontAwesomeIcon icon={faCheckCircle} className="highlight-icon" />
-                  <span>Google Maps, Camera & AI APIs Mastery</span>
+                  <span>PostgreSQL, MySQL & Supabase Data Architecture</span>
                 </div>
               </div>
             </div>

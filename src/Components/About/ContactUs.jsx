@@ -81,7 +81,7 @@ const ContactUs = () => {
                     <FontAwesomeIcon icon={faCheck} />
                   </div>
                   <h4 className="text-white">Message Delivered Successfully!</h4>
-                  <p className="text-muted">Thank you for reaching out. Qadeer will get back to you within 24 hours.</p>
+                  <p className="text-muted">Thank you for reaching out. Abdul Qadeer will get back to you within 24 hours.</p>
                 </div>
               ) : (
                 <Form onSubmit={handleSubmit} className="contact-form">
@@ -201,7 +201,7 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/923023466105?text=Hi Qadeer, I'm interested in discussing a project or role!"
+                  href="https://wa.me/923023466105?text=Hi Abdul Qadeer, I'm interested in discussing a project or role!"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-success rounded-pill px-3"

@@ -6,60 +6,60 @@ import "../assets/css/services.css";
 
 const servicesData = [
   {
-    title: "Mobile App Development",
-    icon: "bi bi-phone",
-    desc: "Cross-platform iOS & Android mobile apps built with React Native — delivering native 60fps performance, custom animations, and offline capabilities.",
+    title: "Full Stack Web Development",
+    icon: "bi bi-window-fullscreen",
+    desc: "Modern, dynamic, and SEO-friendly web platforms built with React and Next.js, optimized for blazing load speeds, SSR/SSG, and responsive design.",
     color: "#00e1ff",
-    badge: "Most Popular",
+    badge: "Core Stack",
   },
   {
-    title: "Payment & IAP Gateways",
-    icon: "bi bi-credit-card-2-front",
-    desc: "PCI-compliant in-app purchases and checkout flows integrated with Paystack, Stripe, and Apple Pay including secure webhooks.",
+    title: "Cross-Platform Mobile Apps",
+    icon: "bi bi-phone",
+    desc: "Production-ready iOS & Android apps crafted with React Native — featuring 60fps animations, native camera/GPS hooks, and smooth offline caching.",
     color: "#a855f7",
-    badge: "High Demand",
+    badge: "Mobile",
   },
   {
-    title: "Google Maps & Geolocation",
-    icon: "bi bi-geo-alt",
-    desc: "Real-time GPS tracking, custom map markers, distance matrices, routing algorithms, and location-based mobile services.",
-    color: "#10b981",
-    badge: "Real-Time",
-  },
-  {
-    title: "Camera & Vision Logic",
-    icon: "bi bi-camera",
-    desc: "Performant device camera integrations, real-time posture analysis, image capture workflows, and media processing pipelines.",
+    title: "Python Backend & Microservices",
+    icon: "bi bi-cpu",
+    desc: "High-performance backend systems built with Python, Django, and Flask. Robust asynchronous queues with Celery/Redis and secure role-based auth.",
     color: "#f59e0b",
-    badge: "Specialized",
+    badge: "Python",
   },
   {
-    title: "AI & Smart API Systems",
-    icon: "bi bi-brain",
-    desc: "Integrating OpenAI GPT-4, vision models, smart chatbots, semantic embeddings, and automated AI assistance into web and mobile platforms.",
-    color: "#ec4899",
-    badge: "Next-Gen",
+    title: "DevOps & Containerization",
+    icon: "bi bi-boxes",
+    desc: "Multi-container Docker setups, Kubernetes (K8s) cluster orchestration, Helm charts, and container security compliance for cloud resilience.",
+    color: "#10b981",
+    badge: "DevOps",
   },
   {
-    title: "Backend & API Architecture",
-    icon: "bi bi-server",
-    desc: "Robust RESTful APIs, JWT role-based authentication, microservices, and high-throughput server backends with NestJS and Node.js.",
+    title: "Microsoft Azure & Cloud Architecture",
+    icon: "bi bi-cloud-check",
+    desc: "Scalable cloud infrastructure on Microsoft Azure (AKS, App Services, Blob Storage, Azure SQL) with automated monitoring and high availability.",
     color: "#3b82f6",
-    badge: "Scalable",
+    badge: "Cloud",
   },
   {
-    title: "Database Engineering",
-    icon: "bi bi-database",
-    desc: "Schema design, index optimization, and data migrations using MongoDB & PostgreSQL for high availability.",
-    color: "#06b6d4",
-    badge: "Data",
-  },
-  {
-    title: "App Store & Play Store Publishing",
-    icon: "bi bi-google-play",
-    desc: "End-to-end mobile app packaging, keystore generation, App Store Connect & Google Play Console publishing compliance.",
+    title: "CI/CD Pipelines & Automation",
+    icon: "bi bi-arrow-repeat",
+    desc: "Automated testing, continuous integration, and continuous deployment workflows via GitHub Actions and Azure DevOps for zero-downtime releases.",
     color: "#22c55e",
-    badge: "Deployment",
+    badge: "Automation",
+  },
+  {
+    title: "Database Engineering & Supabase",
+    icon: "bi bi-database",
+    desc: "Complex schema architecture, indexing, and Row-Level Security using PostgreSQL, MySQL, and Supabase with optimized relational queries.",
+    color: "#06b6d4",
+    badge: "Databases",
+  },
+  {
+    title: "RESTful & GraphQL API Architecture",
+    icon: "bi bi-diagram-3",
+    desc: "Scalable microservices, webhook listeners, rate limiting, and third-party payment integrations with Stripe and Paystack.",
+    color: "#ec4899",
+    badge: "APIs",
   },
 ];
 
@@ -107,7 +107,7 @@ const Services = () => {
                 <p className="card-desc">{service.desc}</p>
                 
                 <a
-                  href="https://wa.me/923023466105?text=Hi Qadeer, I'm interested in your service: " 
+                  href="https://wa.me/923023466105?text=Hi Abdul Qadeer, I'm interested in your service: " 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="service-action-btn text-decoration-none"

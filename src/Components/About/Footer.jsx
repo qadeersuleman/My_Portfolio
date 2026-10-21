@@ -10,14 +10,14 @@ const Footer = () => {
       <Container>
         <div className="footer-content text-center py-4">
           <div className="footer-brand mb-2">
-            <span className="brand-logo-hex">&lt;Q/S&gt;</span>
-            <span className="brand-name ms-2">Qadeer Suleman</span>
+            <span className="brand-logo-hex">&lt;A/Q&gt;</span>
+            <span className="brand-name ms-2">Abdul Qadeer</span>
           </div>
 
           <p className="footer-copyright mb-1">
-            © {new Date().getFullYear()} Qadeer Suleman. Built with React & <FontAwesomeIcon icon={faHeart} className="text-danger mx-1" /> for Recruiters & Clients worldwide.
+            © {new Date().getFullYear()} Abdul Qadeer. Built with React & <FontAwesomeIcon icon={faHeart} className="text-danger mx-1" /> for Recruiters & Clients worldwide.
           </p>
-          <span className="footer-subtext">Cross-Platform Mobile (iOS & Android) & Full Stack Web Architecture</span>
+          <span className="footer-subtext">Full Stack Web & Mobile Engineering • Cloud & DevOps Architecture (Azure, Docker, K8s)</span>
         </div>
       </Container>
     </footer>

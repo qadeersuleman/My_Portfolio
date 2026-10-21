@@ -79,3 +79,17 @@
   color: var(--text-muted);
   margin-top: 0.1rem;
 }
+
+.author-location {
+  font-size: 0.74rem;
+  color: var(--accent-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 225, 255, 0.08);
+  padding: 3px 9px;
+  border-radius: 12px;
+  margin-top: 0.4rem;
+  border: 1px solid rgba(0, 225, 255, 0.2);
+  font-weight: 500;
+}

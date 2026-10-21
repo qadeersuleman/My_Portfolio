@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Button, Modal, Container } from "react-bootstrap";
 import {
-  SiReact, SiNodedotjs, SiExpress, SiNestjs,
-  SiNextdotjs, SiMongodb, SiPostgresql, SiFirebase, SiOpenai, SiRedux, SiTailwindcss
+  SiReact, SiNodedotjs, SiNextdotjs, SiPostgresql, SiTailwindcss,
+  SiPython, SiDjango, SiFlask, SiDocker, SiKubernetes, SiMysql, SiSupabase,
+  SiGithubactions, SiRedis
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAward, faLayerGroup, faMobileAlt, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faAward, faLayerGroup, faLaptopCode, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -25,24 +27,92 @@ import AI_Chat_HD from "../assets/images/Projects/AI_Chat_HD.png";
 
 const projectsData = [
   {
-    title: "Premium E-commerce Mobile App",
-    category: "mobile",
-    categoryLabel: "React Native iOS & Android",
-    desc: "Cross-platform React Native e-commerce app with deep Paystack/Stripe IAP integration, real-time inventory sync, user auth, and sleek dark mode UI.",
-    img: Ecommerce_HD,
-    fullDesc: "Engineered a production-ready mobile shopping application featuring secure credit card / Apple Pay checkout with Stripe and Paystack webhooks. Built with React Native, Redux Toolkit for state management, and Node.js REST API backend.",
+    title: "CloudScale - Azure Kubernetes & CI/CD Engine",
+    category: "devops",
+    categoryLabel: "DevOps, Azure & Kubernetes",
+    desc: "Enterprise cloud orchestration system on Microsoft Azure Kubernetes Service (AKS) featuring automated GitHub Actions CI/CD pipelines, Dockerized services, and Prometheus telemetry.",
+    img: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&auto=format&fit=crop&q=80",
+    fullDesc: "Architected a multi-region deployment infrastructure on Microsoft Azure with Azure Kubernetes Service (AKS). Configured zero-downtime rolling updates, automated Docker image build/push pipelines via GitHub Actions, secret management with Azure Key Vault, and real-time observability using Prometheus & Grafana.",
     features: [
-      "Secure Paystack & Stripe Checkout",
-      "Redux Toolkit Global State Management",
-      "Push Notifications & Order Tracking",
-      "iOS & Android Optimized 60FPS UI"
+      "Microsoft Azure AKS Multi-Node Cluster Orchestration",
+      "Automated CI/CD Workflows via GitHub Actions",
+      "Docker Multi-stage Builds & Container Hardening",
+      "Prometheus & Grafana Real-Time Telemetry Metrics"
     ],
-    tags: ["React Native", "Paystack", "Stripe", "Redux", "Node.js"],
+    tags: ["Microsoft Azure", "Kubernetes", "Docker", "CI/CD", "Prometheus"],
     demoUrl: "https://github.com/qadeersuleman/",
     githubUrl: "https://github.com/qadeersuleman/",
   },
   {
-    title: "Smart Travel & Location Assistant",
+    title: "NextGen SaaS - Full Stack Next.js & Supabase Engine",
+    category: "web",
+    categoryLabel: "Next.js 14 & Supabase",
+    desc: "Multi-tenant enterprise SaaS platform engineered with Next.js App Router, Supabase Auth, PostgreSQL with Row-Level Security, and Stripe recurring billing.",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
+    fullDesc: "Built a high-performance web dashboard featuring server-rendered dynamic data, Supabase real-time subscriptions, and complex PostgreSQL queries. Implemented granular permission control using Supabase Row-Level Security (RLS) policies and integrated Stripe Webhooks for subscription lifecycle automation.",
+    features: [
+      "Next.js App Router & Server Components Architecture",
+      "Supabase Auth & Real-Time PostgreSQL Subscriptions",
+      "Granular Row-Level Security (RLS) Policies",
+      "Stripe Billing & Automated Invoice Processing"
+    ],
+    tags: ["Next.js", "React", "Supabase", "PostgreSQL", "Stripe"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
+  },
+  {
+    title: "Enterprise CRM & Analytics - Python Django & PostgreSQL",
+    category: "python",
+    categoryLabel: "Python Django & PostgreSQL",
+    desc: "Production CRM & reporting engine with Django REST Framework, Celery asynchronous workers, Redis caching, and relational PostgreSQL modeling.",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+    fullDesc: "Designed an enterprise-grade backend with Django REST Framework and PostgreSQL. Handles asynchronous data exports, transactional email queues via Celery and Redis, JWT authentication, and Swagger API documentation.",
+    features: [
+      "Django REST Framework & JWT Token Authentication",
+      "PostgreSQL Query Optimization & Indexing",
+      "Celery Distributed Workers & Redis Task Queuing",
+      "Dockerized Container Deployment & Nginx Ingress"
+    ],
+    tags: ["Python", "Django", "PostgreSQL", "Celery", "Redis", "Docker"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
+  },
+  {
+    title: "OmniFlow - Flask Microservices & MySQL Cluster Gateway",
+    category: "python",
+    categoryLabel: "Python Flask & MySQL",
+    desc: "Lightweight, high-throughput microservices gateway powered by Python Flask, MySQL relational clustering, Redis token caching, and Nginx reverse proxy.",
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
+    fullDesc: "Engineered a distributed API gateway capable of processing thousands of requests per second. Built using Flask blueprints, SQLAlchemy ORM with connection pooling, MySQL replication nodes, and containerized deployment with Docker Compose.",
+    features: [
+      "Python Flask Blueprints & Clean RESTful Endpoints",
+      "MySQL High-Availability Connection Pooling",
+      "Redis In-Memory Token Rate Limiting & Session Store",
+      "Docker Compose Multi-Container Orchestration"
+    ],
+    tags: ["Python", "Flask", "MySQL", "APIs", "Docker", "Nginx"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
+  },
+  {
+    title: "EliteCommerce - React Native Mobile Platform",
+    category: "mobile",
+    categoryLabel: "React Native iOS & Android",
+    desc: "Cross-platform mobile commerce experience with seamless Paystack and Stripe checkout, Redux Toolkit state, push notifications, and 60fps UI.",
+    img: Ecommerce_HD,
+    fullDesc: "Engineered a production-ready mobile shopping application featuring secure credit card / Apple Pay checkout with Stripe and Paystack webhooks. Built with React Native, Redux Toolkit for state management, and Node.js REST API backend.",
+    features: [
+      "Secure Paystack & Stripe Checkout Gateways",
+      "Redux Toolkit Global State Management",
+      "Push Notifications & Real-Time Order Tracking",
+      "iOS & Android Optimized 60FPS Fluid UI"
+    ],
+    tags: ["React Native", "Paystack", "Stripe", "Redux", "APIs"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
+  },
+  {
+    title: "GeoVoyage - Smart Travel & Location Assistant",
     category: "mobile",
     categoryLabel: "React Native & Google Maps",
     desc: "Mobile navigation companion featuring real-time Google Maps integration, custom markers, GPS route calculation, and offline place bookmarking.",
@@ -59,9 +129,26 @@ const projectsData = [
     githubUrl: "https://github.com/qadeersuleman/",
   },
   {
-    title: "AI Posture & Fitness Coach",
-    category: "ai",
-    categoryLabel: "AI & Camera Vision",
+    title: "CognitiveAI - Intelligent Vector Search Engine",
+    category: "web",
+    categoryLabel: "Next.js & Supabase Vector",
+    desc: "Intelligent document conversational system with Next.js App Router, Python microservices, Supabase pgvector embeddings, and token streaming.",
+    img: AI_Chat_HD,
+    fullDesc: "Powered by OpenAI's GPT-4 API and Supabase pgvector for semantic retrieval. Features token streaming, markdown code rendering, file upload parsing, and responsive dark glassmorphic styling.",
+    features: [
+      "OpenAI GPT-4 Token Streaming & Vector Search",
+      "Supabase PostgreSQL pgvector Semantic Retrieval",
+      "Next.js App Router & Tailwind CSS Responsive UI",
+      "Docker Containerized Microservices Deployment"
+    ],
+    tags: ["Next.js", "Python", "Supabase", "PostgreSQL", "Docker"],
+    demoUrl: "https://github.com/qadeersuleman/",
+    githubUrl: "https://github.com/qadeersuleman/",
+  },
+  {
+    title: "PulseFit - AI Posture & Camera Vision App",
+    category: "mobile",
+    categoryLabel: "AI & Mobile Vision",
     desc: "Fitness application leveraging device camera AI for real-time posture correction, workout analytics, and interactive exercise progress charts.",
     img: Fitness_HD,
     fullDesc: "Integrated custom vision algorithms with OpenAI GPT-4 API to analyze posture keypoints via device camera during workouts, preventing injuries and calculating repetition counts in real time.",
@@ -71,24 +158,7 @@ const projectsData = [
       "Smooth Animated Progress Metrics",
       "Dark Mode Cyberpunk UI"
     ],
-    tags: ["AI APIs", "Camera Vision", "React Native", "OpenAI"],
-    demoUrl: "https://github.com/qadeersuleman/",
-    githubUrl: "https://github.com/qadeersuleman/",
-  },
-  {
-    title: "Futuristic AI Assistant & Chatbot",
-    category: "web",
-    categoryLabel: "Next.js & Full Stack AI",
-    desc: "Conversational AI assistant interface featuring voice recognition, streaming responses, context memory, and a glassmorphic Web & Mobile layout.",
-    img: AI_Chat_HD,
-    fullDesc: "Powered by OpenAI's GPT-4 API with a custom NestJS backend for session handling, token streaming, and user prompt history. Features voice-to-text input and instant code formatting.",
-    features: [
-      "OpenAI GPT-4 Token Streaming",
-      "NestJS & Express Backend",
-      "Voice Recognition & Audio Playback",
-      "Glassmorphic Dark Mode Design"
-    ],
-    tags: ["Next.js", "NestJS", "OpenAI", "Node.js"],
+    tags: ["React Native", "AI APIs", "Camera Vision", "OpenAI"],
     demoUrl: "https://github.com/qadeersuleman/",
     githubUrl: "https://github.com/qadeersuleman/",
   },
@@ -122,18 +192,22 @@ const certificatesData = [
 ];
 
 const techStackData = [
-  { name: "React Native", category: "Mobile", icon: <SiReact color="#61DAFB" /> },
   { name: "React.js", category: "Frontend", icon: <SiReact color="#61DAFB" /> },
-  { name: "Next.js", category: "Frontend", icon: <SiNextdotjs color="#ffffff" /> },
-  { name: "Node.js", category: "Backend", icon: <SiNodedotjs color="#339933" /> },
-  { name: "Express.js", category: "Backend", icon: <SiExpress color="#ffffff" /> },
-  { name: "NestJS", category: "Backend", icon: <SiNestjs color="#E0234E" /> },
-  { name: "MongoDB", category: "Database", icon: <SiMongodb color="#47A248" /> },
-  { name: "PostgreSQL", category: "Database", icon: <SiPostgresql color="#336791" /> },
-  { name: "Firebase", category: "Cloud", icon: <SiFirebase color="#FFCA28" /> },
-  { name: "OpenAI GPT-4 API", category: "AI", icon: <SiOpenai color="#a855f7" /> },
-  { name: "Redux Toolkit", category: "State", icon: <SiRedux color="#764ABC" /> },
-  { name: "Tailwind CSS", category: "Styling", icon: <SiTailwindcss color="#06B6D4" /> },
+  { name: "Next.js", category: "Frontend & SSR", icon: <SiNextdotjs color="#ffffff" /> },
+  { name: "Python", category: "Backend & Data", icon: <SiPython color="#3776AB" /> },
+  { name: "Django", category: "Web Framework", icon: <SiDjango color="#092E20" /> },
+  { name: "Flask", category: "Microservices", icon: <SiFlask color="#ffffff" /> },
+  { name: "Docker", category: "DevOps & Containers", icon: <SiDocker color="#2496ED" /> },
+  { name: "Kubernetes", category: "Orchestration", icon: <SiKubernetes color="#326CE5" /> },
+  { name: "Microsoft Azure", category: "Cloud Infrastructure", icon: <VscAzure color="#0089D6" /> },
+  { name: "PostgreSQL", category: "Relational DB", icon: <SiPostgresql color="#4169E1" /> },
+  { name: "MySQL", category: "Relational DB", icon: <SiMysql color="#4479A1" /> },
+  { name: "Supabase", category: "BaaS & PostgreSQL", icon: <SiSupabase color="#3ECF8E" /> },
+  { name: "CI/CD & Actions", category: "Automation", icon: <SiGithubactions color="#2088FF" /> },
+  { name: "React Native", category: "Mobile iOS/Android", icon: <SiReact color="#61DAFB" /> },
+  { name: "Node.js", category: "Backend Runtime", icon: <SiNodedotjs color="#339933" /> },
+  { name: "Redis", category: "Caching & Queues", icon: <SiRedis color="#DC382D" /> },
+  { name: "Tailwind CSS", category: "Styling & UI", icon: <SiTailwindcss color="#06B6D4" /> },
 ];
 
 const Portfolio = () => {
@@ -172,7 +246,7 @@ const Portfolio = () => {
             Portfolio <span className="gradient-text">Showcase</span>
           </h2>
           <p className="section-subtitle">
-            Explore production mobile apps, backend systems, certifications, and tech stack
+            Explore full stack web platforms, cloud & DevOps systems, mobile apps, and credentials
           </p>
           <div className="divider mx-auto"></div>
         </div>
@@ -184,7 +258,7 @@ const Portfolio = () => {
             onClick={() => setActiveTabKey("projects")}
             data-cursor="Projects"
           >
-            <FontAwesomeIcon icon={faMobileAlt} className="me-2" /> Projects (50+)
+            <FontAwesomeIcon icon={faLaptopCode} className="me-2" /> Featured Projects (50+)
           </button>
           <button
             className={`main-tab-btn ${activeTabKey === "certificates" ? "active" : ""}`}
@@ -214,22 +288,28 @@ const Portfolio = () => {
                 All Projects
               </button>
               <button
-                className={`filter-btn ${filterCategory === "mobile" ? "active" : ""}`}
-                onClick={() => setFilterCategory("mobile")}
-              >
-                React Native / Mobile
-              </button>
-              <button
                 className={`filter-btn ${filterCategory === "web" ? "active" : ""}`}
                 onClick={() => setFilterCategory("web")}
               >
-                Full Stack Web
+                Full Stack Web & Next.js
               </button>
               <button
-                className={`filter-btn ${filterCategory === "ai" ? "active" : ""}`}
-                onClick={() => setFilterCategory("ai")}
+                className={`filter-btn ${filterCategory === "devops" ? "active" : ""}`}
+                onClick={() => setFilterCategory("devops")}
               >
-                AI & Camera
+                DevOps & Azure
+              </button>
+              <button
+                className={`filter-btn ${filterCategory === "python" ? "active" : ""}`}
+                onClick={() => setFilterCategory("python")}
+              >
+                Python, Django & Flask
+              </button>
+              <button
+                className={`filter-btn ${filterCategory === "mobile" ? "active" : ""}`}
+                onClick={() => setFilterCategory("mobile")}
+              >
+                React Native & Mobile
               </button>
             </div>
 

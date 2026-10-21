@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faDownload, faCircle } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faDownload } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/Navbar.css";
 
 const CustomNavbar = () => {
@@ -59,17 +59,11 @@ const CustomNavbar = () => {
       >
         <Container fluid className="px-3 px-md-5">
           <Navbar.Brand href="#home" className="navbar-brand d-flex align-items-center gap-2">
-            <span className="brand-logo-hex">&lt;Q/S&gt;</span>
+            <span className="brand-logo-hex">&lt;A/Q&gt;</span>
             <span className="brand-name">
-              Qadeer<span className="gradient-highlight">Suleman</span>
+              Abdul <span className="gradient-highlight">Qadeer</span>
             </span>
           </Navbar.Brand>
-
-          {/* Recruiter Badge */}
-          <div className="nav-hire-badge d-none d-xl-flex align-items-center gap-2">
-            <FontAwesomeIcon icon={faCircle} className="status-dot-pulse" />
-            <span>Open for Opportunities & Freelance</span>
-          </div>
 
           <Navbar.Toggle aria-controls="navbar-nav" className="navbar-toggler">
             <FontAwesomeIcon icon={faBars} className="toggler-icon" />
@@ -130,7 +124,7 @@ const CustomNavbar = () => {
               <div className="nav-cta-btn-wrap ms-lg-3">
                 <a
                   href={`${process.env.PUBLIC_URL}/Qadeer-Resume.pdf`}
-                  download="Qadeer_Suleman_CV.pdf"
+                  download="Abdul_Qadeer_Resume.pdf"
                   className="nav-download-cv-btn text-decoration-none"
                   data-cursor="CV"
                 >

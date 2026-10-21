@@ -5,7 +5,7 @@ import { getGroqChatResponse } from "../services/groqApi";
 import "./assets/css/DeveloperTerminal.css";
 
 const initialLogs = [
-  "Qadeer Suleman Portfolio AI Console v3.0 [Powered by Groq llama-3.3-70b]",
+  "Abdul Qadeer Portfolio AI Console v3.0 [Powered by Groq llama-3.3-70b]",
   "Type your question or click quick command pills below.",
   "-------------------------------------------------------------------",
 ];
@@ -57,9 +57,9 @@ const DeveloperTerminal = () => {
   const getFallbackReply = (query) => {
     const q = query.toLowerCase();
     if (q.includes("skill") || q.includes("tech") || q.includes("stack")) {
-      return "Qadeer's tech stack includes React Native (iOS & Android), React.js, Next.js, Node.js, Express, NestJS, MongoDB, PostgreSQL, Paystack, Stripe, and OpenAI APIs.";
-    } else if (q.includes("backend")) {
-      return "Backend & Cloud Stack: Node.js, Express.js, NestJS, RESTful APIs, Webhooks, Firebase Auth, Firestore, MongoDB, and PostgreSQL.";
+      return "Abdul Qadeer is a Full Stack Web & Mobile Developer and DevOps Engineer. His stack includes React, Next.js, Python (Django & Flask), Supabase, PostgreSQL, MySQL, REST & GraphQL APIs, Docker, Kubernetes, CI/CD, and Microsoft Azure.";
+    } else if (q.includes("backend") || q.includes("cloud") || q.includes("devops")) {
+      return "Backend & Cloud Stack: Python (Django & Flask), Node.js, Express, NestJS, Docker, Kubernetes, CI/CD, Microsoft Azure, Supabase, PostgreSQL, and MySQL.";
     } else if (q.includes("certif")) {
       return "Certifications: Java Programming Masterclass (Oracle Academy), C++ Data Structures & Algorithms (Coding Ninjas), NumPy & Data Science Python (Coursera), and AI & Software Tech Symposium (2024).";
     } else if (q.includes("edu") || q.includes("degree") || q.includes("cgpa") || q.includes("uni")) {
@@ -67,14 +67,14 @@ const DeveloperTerminal = () => {
     } else if (q.includes("contact") || q.includes("email") || q.includes("phone") || q.includes("whatsapp") || q.includes("call")) {
       return "Email: qadeersaleman@gmail.com | Phone / WhatsApp: +92 302 3466105 | Location: Ghotki, Sindh, Pakistan (Open for Remote & Relocation).";
     } else if (q.includes("project") || q.includes("app") || q.includes("work")) {
-      return "Qadeer has built 50+ real-world applications including Premium E-Commerce Mobile App, Smart Travel & Location Assistant, AI Posture Coach, and Futuristic AI Chatbots.";
+      return "Abdul Qadeer has built 50+ real-world applications including Azure K8s CI/CD deployments, Next.js & Supabase SaaS platforms, Python Django CRMs, Flask microservices, and React Native mobile apps.";
     } else if (q.includes("cv") || q.includes("resume") || q.includes("download")) {
       window.open(`${process.env.PUBLIC_URL}/Qadeer-Resume.pdf`, "_blank");
-      return "Initiating download for Qadeer_Suleman_CV.pdf...";
+      return "Initiating download for Abdul_Qadeer_Resume.pdf...";
     } else if (q.includes("hello") || q.includes("hi") || q.includes("hey")) {
-      return "Hello! Feel free to ask about Qadeer's technical skills, 50+ mobile/web projects, BSCS degree (3.80 CGPA), or contact info.";
+      return "Hello! Feel free to ask about Abdul Qadeer's full stack & DevOps skills, 50+ projects, BSCS honors degree (3.80 CGPA), or contact info.";
     }
-    return "Qadeer Suleman is a Full Stack & Mobile Engineer with 3+ years experience and 50+ deployed apps. Ask about his skills, projects, education, or contact details!";
+    return "Abdul Qadeer is a Full Stack Web & Mobile Developer and DevOps Engineer with 3+ years experience and 50+ deployed systems. Ask about his skills, projects, education, or contact details!";
   };
 
   const processQuery = async (queryStr) => {
@@ -109,7 +109,7 @@ const DeveloperTerminal = () => {
 
     if (cleanCmd.toLowerCase() === "cv" || cleanCmd.toLowerCase() === "download-cv") {
       window.open(`${process.env.PUBLIC_URL}/Qadeer-Resume.pdf`, "_blank");
-      await typeOutMessage("Initiating download for Qadeer_Suleman_CV.pdf...");
+      await typeOutMessage("Initiating download for Abdul_Qadeer_Resume.pdf...");
       return;
     }
 
@@ -160,7 +160,7 @@ const DeveloperTerminal = () => {
             </div>
             <div className="terminal-title d-flex align-items-center gap-2">
               <FontAwesomeIcon icon={faTerminal} className="text-info" />
-              <span>bash - qadeer@portfolio-ai:~ (llama-3.3-70b)</span>
+              <span>bash - abdulqadeer@portfolio-ai:~ (llama-3.3-70b)</span>
             </div>
             <button className="terminal-close-btn" onClick={() => setIsOpen(false)}>
               <FontAwesomeIcon icon={faTimes} />
@@ -187,11 +187,11 @@ const DeveloperTerminal = () => {
 
           {/* Quick Command Pills */}
           <div className="terminal-pills">
-            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("Give me a brief recruiter summary of Qadeer")}>summary</button>
-            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("What are Qadeer's technical skills & stack?")}>skills</button>
-            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("Tell me about Qadeer's education and CGPA")}>education</button>
-            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("What projects has Qadeer completed?")}>projects</button>
-            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("How can I contact Qadeer Suleman?")}>contact</button>
+            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("Give me a brief recruiter summary of Abdul Qadeer")}>summary</button>
+            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("What are Abdul Qadeer's technical skills & stack?")}>skills</button>
+            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("Tell me about Abdul Qadeer's education and CGPA")}>education</button>
+            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("What projects has Abdul Qadeer completed?")}>projects</button>
+            <button disabled={isLoading || isTypingStream} onClick={() => processQuery("How can I contact Abdul Qadeer?")}>contact</button>
             <button disabled={isLoading || isTypingStream} onClick={() => processQuery("cv")}>download-cv</button>
             <button disabled={isLoading || isTypingStream} onClick={() => processQuery("clear")}>
               <FontAwesomeIcon icon={faTrash} className="me-1" /> clear
@@ -199,13 +199,13 @@ const DeveloperTerminal = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="terminal-input-form">
-            <span className="prompt-symbol">qadeer@ai:~$</span>
+            <span className="prompt-symbol">abdulqadeer@ai:~$</span>
             <input
               type="text"
               className="terminal-input"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
-              placeholder="Ask anything about Qadeer's portfolio..."
+              placeholder="Ask anything about Abdul Qadeer's portfolio..."
               disabled={isLoading || isTypingStream}
               autoFocus
             />
