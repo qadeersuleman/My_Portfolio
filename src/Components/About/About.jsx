@@ -98,7 +98,7 @@ const About = () => {
             <div className="about-profile-card">
               <div className="about-image-wrapper">
                 <img
-                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&auto=format&fit=crop&q=80"
+                  src={`${process.env.PUBLIC_URL}/Myimage.jpeg`}
                   alt="Abdul Qadeer"
                   className="about-profile-img"
                 />
